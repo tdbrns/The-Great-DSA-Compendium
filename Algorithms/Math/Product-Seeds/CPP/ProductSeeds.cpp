@@ -1,13 +1,18 @@
 /*
-Algorithm:          Find the Product Seeds of an Integer.
+Algorithm:          Find the Product Seeds of an Integer
+
 Task:               A "product seed" of a positive integer is a number that, when multiplied by the product of its digits, equals the
                     original number (e.g., 12 is a product seed of 24 because 1 * 2 * 12 = 24). Write a function that takes a positive
                     integer as input and returns all of its product seeds. If the integer has no product seeds, indicate that there 
                     are none.
+
 Solution:           Since the product seed of an integer should be a factor of the integer, find all the factors of the integer and 
                     check each factor to see if it is a product seed of the integer.
+
 Time Complexity:    O(M + N); M = integers in range 1 to sqrt(num), N = number of factors of num.
+
 Space Complexity    O(N); N = number of factors of num.
+
 Resources:          https://www.geeksforgeeks.org/seeds-or-seed-roots-of-a-number/
 */
 

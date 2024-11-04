@@ -1,10 +1,15 @@
 /*
 Algorithm:          Maximum Subarray Sum (LeetCode Problem #53)
+
 Task:               Given an integer array, find the subarray with the largest sum and return the sum.
+
 Solution:           Basically, we must find the "maximum subarray" of the given array, which is the subarray of whose elements, when 
                     added together, give the largest sum of any other subarray. This is done using Kadane's algorithm.
+
 Time complexity:    O(N); N = size of the integer array
+
 Space complexity:   O(1)
+
 Resources:          https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 */
 

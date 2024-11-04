@@ -1,9 +1,12 @@
 /*
 Structure:          Hashmap (unordered)
+
 Task:               Create a data structure that can store key-value pairs. Duplicate keys should not be accepted.
+
 Solution:           Use an unordered hash map, which stores key-value pairs in an arbitrary order. Unordered hash maps do not allow 
                     duplicate keys; if a new key being added to the hash map is a duplicate of a key that already exists in the hash
                     map, the pre-existing key-value pair will be overwritten with the new key and its value.
+                    
 Resources:          https://en.cppreference.com/w/cpp/container/unordered_map
                     https://www.geeksforgeeks.org/map-vs-unordered_map-c/
 */

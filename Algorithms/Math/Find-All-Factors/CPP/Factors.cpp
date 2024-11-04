@@ -1,11 +1,16 @@
 /*
 Algorithm:          Find All the Factors of an Integer.
+
 Task:               Print all the factors of a given positive integer.
+
 Solution:           Factors typically come in pairs of integers that, when multiplied together, will produce the given positive integer.
                     For example, {1, 12}, {2, 6}, {3, 4} are factor pairs of 12 because the numbers in each pair will produce 12 when
                     they are multiplied together. We can use factor pairs to find all of the factors of any positive integer.
+
 Time Complexity:    O(sqrt(N)); N = the given positive integer
+
 Space Complexity    O(1)
+
 Resources:          https://www.geeksforgeeks.org/find-all-factors-of-a-natural-number/
 */
 

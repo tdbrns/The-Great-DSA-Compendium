@@ -1,12 +1,17 @@
 /*
 Algorithm:          Heap Sort 
-Characteristics:    Sorts array in-place, unstable, divide-and-conquer
-Time complexity:    O(N*log(N))
-Space complexity:   O(1)
-Task:               Sort an unsorted array of integers in ascending order.
+
+Task:               Use an unstable, divide-and-conquer sorting algorithm to sort an array of integers in-place in ascending order.
+
 Solution:           Sort the array using the Heap Sort algorithm, which transforms the unsorted array into a max-heap - a binary tree
                     wherein the parent nodes are always greater than its child nodes and the root is the largest value in the unsorted
                     part of the array.
+
+Time complexity:    O(N*log(N)); N = number of integers to be sorted
+                    - Worst-case scenario occurs when the array in sorted in the descending order.
+
+Space complexity:   O(1)
+
 Resources:          https://www.geeksforgeeks.org/heap-sort/      
 */
 

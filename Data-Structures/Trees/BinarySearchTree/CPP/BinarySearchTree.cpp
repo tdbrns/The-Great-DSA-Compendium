@@ -1,8 +1,11 @@
 /*
 Structure:          Binary Search Tree 
+
 Task:               Create a binary tree that is organized so that the integers on the left side of the tree are less than the 
                     integers on the right side of the tree.
+                    
 Solution:           Create a binary search tree.
+
 Resources:          https://www.geeksforgeeks.org/introduction-to-binary-search-tree/
 */
 

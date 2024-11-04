@@ -1,19 +1,24 @@
 /*
 Algorithm:          Identify the Number of "Bulls" and "Cows" (Leetcode Problem #299)
+
 Task:               You are playing Bulls and Cows with a friend. You write down a secret number and ask your friend to guess what the
                     number is. When your friend makes a guess, you provide them a hint by showing them how many "bulls" and "cows" are
                     in their guess. "Bulls" are digits in the guess that are in the correct position, and "cows" are digits in the 
                     guess that are in your secret number but are located in the wrong position (i.e., the non-bull digits in the guess
                     that could be rearranged such that they become bulls). Given the secret number and your friend's guess, return the
                     hint for your friend's guess.
+
                     The hint should be formatted as "xAyB", where "x" is the number of bulls and "y" is the number of cows. Both the
                     secret and the guess may contain duplicate digits. The secret and the guess are always of equal length.
 Solution:           Iteratively compare the digits in the secret to the digits in the guess (i.e., compare the 1st secret digit
                     to the 1st guess digit, the 2nd secret digit to the 2nd guess digit, and so on) to determine the number of bulls
                     in the guess. Use two <char, int> hashmaps to record the occurence of non-bull digits in the secret and 
                     the guess to determine the number of cows in the guess.
+
 Time complexity:    O(N); N = length of the secret number 
+
 Space complexity:   O(N); N = size of the hashmaps (worst-case scenario occurs when the guess number has no bulls or cows)
+
 Resources:          https://leetcode.com/problems/bulls-and-cows/description/
 */
 

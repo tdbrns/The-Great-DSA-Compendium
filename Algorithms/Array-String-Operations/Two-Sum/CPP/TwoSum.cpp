@@ -1,13 +1,18 @@
 /*
 Algorithm:          Two Sum (LeetCode Problem #1)
+
 Task:               Given an array of integers nums and a target value, return indices of the two numbers such that they add up to 
                     target. Assume that each input would have exactly one solution, and the same element cannot be used twice.
+
 Solution:           Iteratively subtract every integer in the array from the target value and store each difference (compliment) 
                     into a hash map. With each iteration, check the hash map to see if the current difference exists in the hash map;
                     if it does exist, then the current difference is a compliment of the current number in the array that will add up
                     to target.
+
 Time complexity:    O(N); N = size of the array of integers
+
 Space complexity:   O(1)
+
 Resources:          https://leetcode.com/problems/two-sum/solutions/
 */
 

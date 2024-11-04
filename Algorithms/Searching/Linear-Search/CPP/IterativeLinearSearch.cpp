@@ -1,17 +1,21 @@
 /*
-Algorithm:          Iterative Linear Search 
-Characteristics:    Brute-force
-Time complexity:    O(N)
-Space complexity:   O(1)
-Task:               Search for a specific value in a sorted array.
+Algorithm:          Linear Search 
+
+Task:               Use a brute force algorithm to find a specific integer in a sorted array.
+
 Solution:           Search for the target value in the sorted array using a Linear Search algorithm.
+
+Time complexity:    O(N); N = number of integers in the array
+
+Space complexity:   O(1)
+
 Resources:          https://www.geeksforgeeks.org/linear-search/
 */
 
 #include <iostream>
 using namespace std;
 
-bool IterativeLinearSearch(int arr[], int size, int target)
+bool LinearSearch(int arr[], int size, int target)
 {
     bool found = false;
     for (int i = 0; i < size; i++)
@@ -34,10 +38,10 @@ int main()
     int target1 = 33;
     int target2 = 32;
 
-    auto targetFound = IterativeLinearSearch(numArray, arrSize, target1);
+    auto targetFound = LinearSearch(numArray, arrSize, target1);
     (targetFound) ? cout << "First target found!\n" : cout << "First target not found.\n";
 
-    targetFound = IterativeLinearSearch(numArray, arrSize, target2);
+    targetFound = LinearSearch(numArray, arrSize, target2);
     (targetFound) ? cout << "Second target found!\n" : cout << "Second target not found.\n";
 
     return 0;

@@ -1,15 +1,19 @@
 /*
-Algorithm:          Iterative Breadth-First Search (BFS) for a graph
-Characteristics:    
-Time complexity:    O(V + E); V = total number of vertices, E = total number of edges
-Space complexity:   O(V); V = total number of vertices
+Algorithm:          Iterative Breadth-First Search (BFS) for a Graph
+
 Task:               Print out all the vertex values of an undirected graph that is either connnected or disconnected.
+
 Solution:           Use an iterative breadth-first search (BFS) algorithm to traverse the graph and print out the vertex values. BFS
                     works by first visiting a source vertex and then visiting the vertex's adjacent vertices before moving to the
                     next level of the graph and doing the same thing until all vertices has been visited once. This implementation 
                     of BFS pushes visited vertices into a queue and uses the queue to determine which vertex will be the next source
                     vertex. Since graphs can contain cycles, a vector is used to keep track of the visited vertices so that each
                     vertex is only visited once.
+
+Time complexity:    O(V + E); V = total number of vertices, E = total number of edges
+
+Space complexity:   O(V); V = total number of vertices
+
 Resources:          https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
                     https://www.youtube.com/watch?v=pcKY4hjDrxk
 */

@@ -1,15 +1,21 @@
 /*
 Algorithm:          Recursive Binary Search
-Characteristics:    Divide-and-conquer
-Time complexity:    O(log(N))
-Space complexity:   O(1)
-Task:               Search for a specific number in an array this is sorted in either ascending or descending order.
+
+Task:               Use a divide-and-conquer algorithm to find a specific integer in an array this is sorted in either ascending or 
+                    descending order.
+
 Solution:           Search for the target value in array using the Binary Search algorithm, which identifies the centermost element of 
                     the array and compares the centermost element value to the target value to determine whether the target is in the
                     left or the right side of the centermost element in the array. If the target value is on one side of the centermost
                     element, the other side of the centermost element will be omitted from the search, and the side in which the target
                     resides will be split by its own centermost value and follow the same process. This process of of splitting subarrays
-                    will continue until the centermost element value is equal to the target value or the subarray can no longer be split.
+                    will continue until the centermost element value is equal to the target value or the subarray can no longer be 
+                    split.
+                    
+Time complexity:    O(log(N)); N = number of integers in the array
+
+Space complexity:   O(1)
+
 Resources:          https://www.geeksforgeeks.org/binary-search/
 */
 

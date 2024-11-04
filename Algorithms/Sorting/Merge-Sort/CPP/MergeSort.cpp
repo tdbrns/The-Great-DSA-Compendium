@@ -1,16 +1,23 @@
 /*
 Algorithm:          Merge Sort
-Characteristics:    Does not sort in-place, stable, divide-and-conquer
-Time complexity:    O(N*log(N))
-Space complexity:   O(N)
-Task:               Sort an unsorted array of integers in ascending order, and count the total number of inversion required to sort the 
-                    array.
+
+Task:               Use a stable divide-and-conquer sorting algorithm to sort an array of integers in ascending order, and count the 
+                    total number of inversion required to sort the array.
+
 Solution:           Sort the array using the Merge Sort algorithm, which sorts the array by dividing it into subarrays until it has been
                     divided into separate single elements, and placing those elements into a sorted array in the appropriate order.
                     During the process of merging the subarrays into ascending order, when the current element of the left subarray is 
                     greater than the current element of the right subarray, the left subarray element and all the elements to its right
-                    are considered inversions. If none of the left subarray elements are greater than any of the right subarray elements,
-                    the total inversion count is 0.
+                    are considered inversions. If none of the left subarray elements are greater than any of the right subarray 
+                    elements, the total inversion count is 0.
+
+Time complexity:    O(N*log(N)); N = number of integers to be sorted
+                    - Worst-case scenario occurs when the array in sorted in the descending order.
+
+Space complexity:   O(N)
+
+Resources:          https://www.geeksforgeeks.org/merge-sort/
+                    https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/
 */
 
 #include <iostream>
@@ -91,10 +98,11 @@ unsigned int MergeSort(int currArray[], int leftIndex, int rightIndex)
 
     // midIndex will change with each recursive pass
     int midIndex = (rightIndex + leftIndex) / 2;
-    // Recursively divide the left subarray in half until there are only single elements
+    
+    // Recursively divide the left and right subarray in half until there are only single elements
     totalInversion += MergeSort(currArray, leftIndex, midIndex);
-    // Recursively divide the right subarray  in half until there are single elements
     totalInversion += MergeSort(currArray, midIndex+1, rightIndex);
+
     // Merge the single elements into a sorted array
     totalInversion += Merge(currArray, leftIndex, midIndex, rightIndex);
 

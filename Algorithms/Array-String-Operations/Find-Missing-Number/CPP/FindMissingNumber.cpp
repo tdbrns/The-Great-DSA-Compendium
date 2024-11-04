@@ -1,10 +1,15 @@
 /*
 Algorithm:          Find Missing Number (LeetCode Problem #268)
+
 Task:               Given an array of containing N unique integers in the range [0, N], find the only number in the range that is 
                     missing from the array.
-Solution:           Subtract the sum of all the integers in the array from the sum of all the integers in range [0, N]
+
+Solution:           Subtract the sum of all the integers in the array from the sum of all the integers in range [0, N].
+
 Time complexity:    O(N); N = size of the integer array
+
 Space complexity:   O(1)
+
 Resources:          https://leetcode.com/problems/missing-number/description/
 */
 

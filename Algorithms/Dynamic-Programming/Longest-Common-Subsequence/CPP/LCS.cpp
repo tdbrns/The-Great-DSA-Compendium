@@ -1,10 +1,15 @@
 /*
-Algorithm:          Longest Common Subsequence (LCS) using Tabulation
+Algorithm:          Longest Common Subsequence using Tabulation/Bottom-Up Approach
+
 Task:               Given two strings str1 and str2 with lengths m and n respectively, find the length of their longest common 
                     subsequence.
+
 Solution:           Use DP Tabulation to determine the length of the longest common subsequence between str1 and str2.
+
 Time complexity:    O(M*N); M = length of str1, N = length of str2
+
 Space complexity:   O(M*N); M * N = size of LCS Table
+
 Resources:          https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
                     https://www.youtube.com/watch?v=Ua0GhsJSlWM
 */

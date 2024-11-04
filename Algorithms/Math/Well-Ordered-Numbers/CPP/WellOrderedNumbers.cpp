@@ -1,11 +1,16 @@
 /*
 Algorithm:          Well-Ordered Numbers
+
 Task:               A well-ordered number is a number with digits that are in strictly increasing order from left to right (e.g., 123, 
                     124, 3589, etc.). Given a number of digits n, find all well-ordered number with n digits. n can be any number from
                     1 to 9.
+
 Solution:           Use a recursive function to print out each possible well-ordered number with n digits.
+
 Time Complexity:    O(N * 2^N); N = number of digits n, 2^N = number of n-digit numbers to be generated.
+
 Space Complexity    O(1)
+
 Resources:          https://www.geeksforgeeks.org/generate-k-digit-numbers-digits-strictly-increasing-order/
 */
 

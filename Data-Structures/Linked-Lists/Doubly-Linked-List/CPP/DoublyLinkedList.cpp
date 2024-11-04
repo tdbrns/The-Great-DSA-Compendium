@@ -1,11 +1,14 @@
 /*
 Structure:          Doubly Linked List 
+
 Task:               Create a linked list that sorts integers in ascending order without duplicate values.
+
 Solution:           Use a doubly linked list class that can be used to store any given integers in ascneding order. Integers are
                     entered into the linked list as ListNodes, which are structs that can hold a data value, a pointer to the next
                     ListNode in the list, and a pointer to the previous ListNode in the list. This data structure utilizes operations for 
                     inserting ListNodes into the list, removing ListNodes from the list, printing out the data values of the list, and
                     returning the number of values the list holds all while keeping the data values sorted in ascending order.
+                    
 Resources:          https://www.geeksforgeeks.org/doubly-linked-list/
 */
 

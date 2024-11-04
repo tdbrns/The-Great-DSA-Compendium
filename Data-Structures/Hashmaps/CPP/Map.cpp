@@ -1,10 +1,13 @@
 /*
 Structure:          Hashmap (ordered)
+
 Task:               Create a data structure that can store key-value pairs. Duplicate keys should not be accepted.
+
 Solution:           Use an ordered hash map, which stores key-value pairs in a specific order. Ordered hash maps in C++ organize
                     elements in ascending order by default using a binary search tree. Ordered hash maps do not allow duplicate keys; 
                     if a new key being added to the hash map is a duplicate of a key that already exists in the hash map, the 
                     pre-existing key-value pair will be overwritten with the new key and its value.
+                    
 Resources:          https://cplusplus.com/reference/map/map/
 */
 

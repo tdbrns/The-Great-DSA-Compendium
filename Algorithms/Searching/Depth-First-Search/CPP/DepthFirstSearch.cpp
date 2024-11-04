@@ -1,9 +1,8 @@
 /*
-Algorithm:          Depth-First Search (DFS) for a graph
-Characteristics:    
-Time complexity:    O(V + E); V = total number of vertices, E = total number of edges
-Space complexity:   O(v); V = total number of vertices
+Algorithm:          Depth-First Search (DFS) for a Graph
+
 Task:               Print out all the vertex values of an undirected graph that is either connnected or disconnected.
+
 Solution:           Use a recursive depth-first search (DFS) algorithm to traverse the graph and print out the vertex values. DFS
                     works by first visiting a source vertex and pushing its unvisited adjacent vertices onto a stack - in this case, 
                     the DFS function is called recursively to create a call stack that will keep track of any adjacent unvisited
@@ -12,6 +11,11 @@ Solution:           Use a recursive depth-first search (DFS) algorithm to traver
                     then the next vertex to be removed from the top of the stack will checked for any unvisited adjacent vertices.
                     This process will continue until all vertices in the graph have been visited once. Since graphs can contain 
                     cycles, a vector is used to keep track of the visited vertices so that each vertex is only visited once.
+
+Time complexity:    O(V + E); V = total number of vertices, E = total number of edges
+
+Space complexity:   O(v); V = total number of vertices
+
 Resources:          https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
                     https://www.youtube.com/watch?v=pcKY4hjDrxk
 */

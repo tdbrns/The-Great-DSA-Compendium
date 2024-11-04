@@ -1,13 +1,18 @@
 /*
 Algorithm:          Greatest Common Divisor (LeetCode Problem #1979)
+
 Task:               Given an array of integers, return the greatest common divisor of the largest and smallest integer in the array.
+
 Solution:           Use the Euclidean algorithm to find the greatest common divisor. The algorithm is based on the principle that the
                     greatest common divisor of two numbers does not change if the larger number (a) is replaced by its difference with 
                     the smaller number (b). In this solution, we use the Euclidean algorithm with division which involves replacing a
                     with b and replacing b with the remainder of a divided by b; this process is repeated until b equals 0, which
                     indicates that the value of a is the greatest common divisor.
-Time Complexity:    O(log(max(A, B))); A = the larger number, B = the smaller number.
-Space Complexity    O(N); N = size of the integer array.
+
+Time Complexity:    O(log(max(A, B))); A = the larger number, B = the smaller number
+
+Space Complexity    O(N); N = size of the integer array
+
 Resources:          https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 */
 

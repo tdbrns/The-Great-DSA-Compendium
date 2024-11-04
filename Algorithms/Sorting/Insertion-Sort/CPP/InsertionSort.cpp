@@ -1,11 +1,16 @@
 /*
 Algorithm:          Insertion Sort 
-Characteristics:    Sorts array in-place, stable
-Time complexity:    O(N^2)
-Space complexity:   O(1)
-Task:               Sort an unsorted array of integers in ascending order.
+
+Task:               Use a stable sorting algorithm to sort an array of integers in-place in ascending order.
+
 Solution:           Sort the array using the Insertion Sort algorithm, which iteratively inserts the elements of the unsorted array into
                     the a sorted portion of the array until all elements are placed in their correct position in the sorted array.
+                    
+Time complexity:    O(N^2); N = number of integers to be sorted
+                    - Worst-case scenario occurs when the array in sorted in the descending order.
+
+Space complexity:   O(1)
+
 Resources:          https://www.geeksforgeeks.org/insertion-sort-algorithm/
 */
 
