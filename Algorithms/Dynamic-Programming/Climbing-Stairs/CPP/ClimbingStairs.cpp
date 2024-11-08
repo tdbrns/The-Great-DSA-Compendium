@@ -30,6 +30,7 @@ int countSteps(int n)
     // Find every value of F(x) for every possible value of x in range 1 to n.
     for (int x = 1; x < n; x++)
     {
+
         int temp = oneStep;
         oneStep = oneStep + twoStep;        // Set oneStep as F(x). F(x) = F(x-1) + F(x-2).
         twoStep = temp;                     // Set twoStep as F(x-1).
@@ -38,7 +39,7 @@ int countSteps(int n)
     }
 
     // After the final for-loop iteration, oneStep will hold the value of F(n) (the number of distinct ways to climb the staircase).
-    return oneStep;
+    return twoStep;
 }
 /* countSteps() when n = 5; 
     init  oneStep = 1; twoStep = 1      x = 1
