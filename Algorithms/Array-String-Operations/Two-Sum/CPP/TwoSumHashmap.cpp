@@ -1,5 +1,5 @@
 /*
-Algorithm:          Two Sum (LeetCode Problem #1)
+Algorithm:          Two Sum using Hashmap (LeetCode Problem #1)
 
 Task:               Given an array of integers nums and a target value, return indices of the two numbers such that they add up to 
                     target. Assume that each input would have exactly one solution, and the same element cannot be used twice.
@@ -26,18 +26,17 @@ using std::unordered_map;
 
 vector<int> twoSum(vector<int>& nums, int target) 
 {
-    unordered_map<int, int> uMp;                    // Stores each integer in nums as a key and each integer's index in nums as a value.
+    unordered_map<int, int> uMp;            // Stores each integer in nums as a key and each integer's index in nums as a value.
     
     for (int i = 0; i < nums.size(); i++)
     {
-        int compliment = target - nums[i];          // Potential integer that, when added to nums[i], would equal target.
+        int compliment = target - nums[i];   // Potential integer that, when added to nums[i], would equal target.
         
-        // Check if the compliment of the current number exists in the map.
+        // If the compliment does not exist in the map, store the current number and its index in the map.
         if(uMp.find(compliment) == uMp.end())
-            // If not, store the current number and its index in the map.
             uMp[nums[i]] = i;
+        // Otherwise, return the indices of the current number and its compliment.
         else
-            // Return the indices of the current number and its compliment.
             return {uMp[compliment], i};
     }
 
@@ -51,6 +50,16 @@ int main()
     int target = 9;
     vector<int> result = twoSum(numVect, target);
     cout << "[" << result.at(0) << ", " << result.at(1) << "]";
+
+        numVect = {3, 2, 4};
+    target = 6;
+    result = twoSum(numVect, target);
+    cout << "[" << result.at(0) << ", " << result.at(1) << "]" << endl;
+
+    numVect = {2, 2};
+    target = 4;
+    result = twoSum(numVect, target);
+    cout << "[" << result.at(0) << ", " << result.at(1) << "]" << endl;
 
     return 0;
 }

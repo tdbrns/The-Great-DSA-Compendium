@@ -46,6 +46,9 @@ void insertPair(unordered_map<char, int>& uMp, char key, int val)
 {
     pair<char, int> newPair (key, val); 
     uMp.insert(newPair);
+
+    // Another way...
+    //uMp.insert(std::make_pair(key, val));
 }
 
 // Insert a new key-value pair into a hash map without creating a temporary key-value pair.
