@@ -28,6 +28,7 @@ void initializeMap(map<char, int>& mp, string str)
     // Each key is a character in str; each value is the index of the character in str.
     for (int i = 0; i < str.length(); i++)
         mp[str[i]] = i;
+    cout << "Created hash map with " << mp.size() << " elements." << endl;
 }
 
 // Create a temporary key-value pair and copy it into a hash map.
@@ -61,7 +62,7 @@ void printMap(map<char, int>& mp)
 {
     // Print each key-value pair in mp. 
     // NOTE: itr is an iterator for mp of type map<char, int>::iterator
-    cout << "hash map:" << endl;
+    cout << "Hash map:" << endl;
     for (auto itr = mp.begin(); itr != mp.end(); itr++)
         cout << "["<< itr->first << ":" << itr->second << "]" << endl;
 }
@@ -129,7 +130,8 @@ int main()
 {
     map<char, int> mp;                  // Stores characters as keys and their corresponding values are integers.
     initializeMap(mp, "Hello");         // Fill mp with each character in "Hello".
-
+    cout << endl;
+    
     insertPair(mp, '!', 5);
 
     emplacePair(mp, '?', 6);

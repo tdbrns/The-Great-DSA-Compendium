@@ -17,7 +17,8 @@ Solution:           Iteratively compare the digits in the secret to the digits i
 
 Time complexity:    O(N); N = length of the secret number 
 
-Space complexity:   O(N); N = size of the hashmaps (worst-case scenario occurs when the guess number has no bulls or cows)
+Space complexity:   O(N); N = size of the hashmaps 
+                    NOTE: worst-case scenario occurs when the guess number has no bulls or cows.
 
 Resources:          https://leetcode.com/problems/bulls-and-cows/description/
 */

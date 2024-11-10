@@ -28,6 +28,7 @@ void initializeMap(unordered_map<char, int>& uMp, string str)
     // Each key is a character in str; each value is the index of the character in str.
     for (int i = 0; i < str.length(); i++)
         uMp[str[i]] = i;
+    cout << "Created hash map with " << uMp.size() << " elements." << endl;
 }
 
 // Print the number of buckets in a hash map and bucket in which each element of the hash map has been placed.
@@ -72,7 +73,7 @@ void printMap(unordered_map<char, int>& uMp)
 {
     // Print each key-value pair in uMp. 
     // NOTE: itr is an iterator for uMp of type unordered_map<char, int>::iterator
-    cout << "hash map:" << endl;
+    cout << "Hash map:" << endl;
     for (auto itr = uMp.begin(); itr != uMp.end(); itr++)
         cout << "["<< itr->first << ":" << itr->second << "]" << endl;
 }
@@ -138,9 +139,9 @@ void printWordFrequency(unordered_map<string, int>& uMp, string str)
 
 int main()
 {
-    string str = "Hello";
     unordered_map<char, int> uMp;           // Stores each character of str as a key and each character's index in str as a value.
-    initializeMap(uMp, str);                // Fill uMp with each character in "Hello".
+    initializeMap(uMp, "Hello");            // Fill uMp with each character in "Hello".
+    cout << endl;
 
     printBucketInfo(uMp);
     cout << endl;
