@@ -32,12 +32,12 @@ vector<int> twoSum(vector<int>& nums, int target)
     {
         int compliment = target - nums[i];   // Potential integer that, when added to nums[i], would equal target.
         
-        // If the compliment does not exist in the map, store the current number and its index in the map.
-        if(uMp.find(compliment) == uMp.end())
-            uMp[nums[i]] = i;
-        // Otherwise, return the indices of the current number and its compliment.
-        else
+        // If the compliment exists in the map, return the index of compliment and nums[i].
+        if(uMp.find(compliment) != uMp.end())
             return {uMp[compliment], i};
+        // Otherwise, store nums[i] and its index in uMp.
+        else
+            uMp[nums[i]] = i;
     }
 
     // If no pair is found, return {-1, -1}.
