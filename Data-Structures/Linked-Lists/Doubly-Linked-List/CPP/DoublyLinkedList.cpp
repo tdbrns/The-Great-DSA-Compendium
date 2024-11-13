@@ -176,11 +176,6 @@ public:
         }
     }
 
-    bool search()
-    {
-        
-    }
-
     void printListForward()
     {
         ListNode* current = _head;
