@@ -8,7 +8,8 @@ Solution:           The Fibonacci sequence is a sequence of numbers in which eac
                         F(n) = F(n-1) + F(n-2), for n > 2; let F(0) = 0 and F(1) = 1
                     In this approach, we find the nth number in the Fibonacci sequence by recursively performing the Fibonacci
                     formula on every value n we obtain after each recursive call of the Fibonacci function.
-Time Complexity:    O(N); N = number of Fibonacci values from 0 to n
+                    
+Time Complexity:    O(N); N = number of Fibonacci values in range 0 to n
 
 Space Complexity    O(1)
 

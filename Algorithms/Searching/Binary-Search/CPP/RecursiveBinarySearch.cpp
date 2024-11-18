@@ -14,7 +14,7 @@ Solution:           Search for the target value in array using the Binary Search
                     
 Time complexity:    O(log(N)); N = number of integers in the array
 
-Space complexity:   O(1)
+Space complexity:   O(N); N = maximum depth of the recursion stack
 
 Resources:          https://www.geeksforgeeks.org/binary-search/
 */

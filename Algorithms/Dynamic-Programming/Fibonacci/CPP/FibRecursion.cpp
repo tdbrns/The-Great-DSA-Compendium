@@ -10,9 +10,9 @@ Solution:           The Fibonacci sequence is a sequence of numbers in which eac
                     base case. Then, each function call returns a value, and the values are added together until the sums are returned
                     to the original function call, which then returns the nth Fibonacci number.
 
-Time Complexity:    O(2^N); N = number of Fibonacci values from 0 to n
+Time Complexity:    O(2^N); N = number of Fibonacci values in range 0 to n
 
-Space Complexity    O(1)
+Space Complexity    O(N); N = maximum depth of the recursion stack
 
 Resources:          https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
 */

@@ -18,7 +18,7 @@ Solution:           The recurrence relation of this problem is reminiscent of th
 
 Time complexity:    O(N); N = total number of steps in the staircase
 
-Space complexity:   O(N); N = total number of steps in the staircase
+Space complexity:   O(N); N = total number of steps in the staircase + maximum depth of the recursion stack
 
 Resources:          https://leetcode.com/problems/min-cost-climbing-stairs/solutions/
 */

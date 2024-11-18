@@ -8,7 +8,7 @@ Solution:           Sort the array using the Heap Sort algorithm, which transfor
                     part of the array.
 
 Time complexity:    O(N*log(N)); N = number of integers to be sorted
-                    - Worst-case scenario occurs when the array in sorted in the descending order.
+                    NOTE: worst-case scenario occurs when the array in sorted in the descending order.
 
 Space complexity:   O(1)
 
@@ -16,9 +16,10 @@ Resources:          https://www.geeksforgeeks.org/heap-sort/
 */
 
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::swap;
 
-void MaxHeapify(int arr[], int size, int index)
+void maxHeapify(int arr[], int size, int index)
 {
     // In a max-heap, the largest value must be the root of the heap.
     // Set index as the root of the heap.
@@ -41,35 +42,35 @@ void MaxHeapify(int arr[], int size, int index)
     if (indexOfLargest != index)
     {
         swap(arr[index], arr[indexOfLargest]);
-        MaxHeapify(arr, size, indexOfLargest);
+        maxHeapify(arr, size, indexOfLargest);
     }
 }
 
-void HeapSort(int arr[], int size)
+void heapSort(int arr[], int size)
 {
     // Transform arr[] into a max-heap with the largest element as its root.
     // Once this for loop is completed, the largest element will be the first element (arr[0]) of the array.
     for (int i = size / 2 - 1; i >= 0; i--)
-        MaxHeapify(arr, size, i);
+        maxHeapify(arr, size, i);
     
     // Swap largest element (arr[0]) with smallest element (arr[i]), which puts arr[0] in its correct position in the sorted array.
-    // Then, call MaxHeapify to turn the heap back into a max-heap with the largest element as the root.
-    // Note: the elements that are placed in their correct position are not included in the MaxHeapify call.
+    // Then, call maxHeapify to turn the heap back into a max-heap with the largest element as the root.
+    // Note: the elements that are placed in their correct position are not included in the maxHeapify call.
     for (int i = size - 1; i > 0; i--)
     {
         swap(arr[0], arr[i]);
-        MaxHeapify(arr, i, 0);
+        maxHeapify(arr, i, 0);
     }
 }
 
 int main()
 {
-    int numArray[] = { 12, 11, 13, 5, 6, 7 };
-    int arrSize = sizeof(numArray) / sizeof(numArray[0]);
-    HeapSort(numArray, arrSize);
+    int nums[] = { 12, 11, 13, 5, 6, 7 };
+    int size = sizeof(nums) / sizeof(nums[0]);
+    heapSort(nums, size);
 
-    for (auto num : numArray)
-        cout << num << " ";
+    for (int i = 0; i < size; i++)
+        cout << nums[i] << " ";
 
     return 0;
 }

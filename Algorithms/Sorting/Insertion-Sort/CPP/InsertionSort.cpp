@@ -7,7 +7,7 @@ Solution:           Sort the array using the Insertion Sort algorithm, which ite
                     the a sorted portion of the array until all elements are placed in their correct position in the sorted array.
                     
 Time complexity:    O(N^2); N = number of integers to be sorted
-                    - Worst-case scenario occurs when the array in sorted in the descending order.
+                    NOTE: worst-case scenario occurs when the array in sorted in the descending order.
 
 Space complexity:   O(1)
 
@@ -15,9 +15,9 @@ Resources:          https://www.geeksforgeeks.org/insertion-sort-algorithm/
 */
 
 #include <iostream>
-using namespace std;
+using std::cout;
 
-void InsertionSort(int arr[], int size)
+void insertionSort(int arr[], int size)
 {
     for (int keyIndex = 1; keyIndex < size; keyIndex++)
     {
@@ -43,12 +43,12 @@ void InsertionSort(int arr[], int size)
 
 int main()
 {
-    int numArray[] = {5, 4, 7, 12, 9, 7, 2};
-    int arrSize = sizeof(numArray) / sizeof(numArray[0]);
-    InsertionSort(numArray, arrSize);
-
-    for (auto num : numArray)
-        cout << num << " ";
+    int nums[] = {5, 4, 7, 12, 9, 7, 2};
+    int size = sizeof(nums) / sizeof(nums[0]);
+    insertionSort(nums, size);
+    
+    for (int i = 0; i < size; i++)
+        cout << nums[i] << " ";
 
     return 0;
 }

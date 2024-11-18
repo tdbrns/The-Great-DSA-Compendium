@@ -16,7 +16,7 @@ Solution:           To merge the two sorted lists into one sorted list, we basic
 
 Time complexity:    O(M + N); N = number of nodes in list1, M = number of nodes in list2
 
-Space complexity:   O(1)
+Space complexity:   O(M + N); M + N = number of nodes in the merged list
 
 Resources:          https://leetcode.com/problems/merge-two-sorted-lists/description/
                     https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/

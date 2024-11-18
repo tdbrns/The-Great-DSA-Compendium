@@ -19,7 +19,7 @@ Solution:           To find the minimum number of edit operation needed to trans
 
 Time complexity:    O(M * N); M = length of str1, N = length of str2
 
-Space complexity:   O(M * N); M * N = size of 2-D memoization cache
+Space complexity:   O(M * N); M * N = size of 2-D memoization cache + maximum depth of the recursion stack
 
 Resources:          https://www.youtube.com/watch?v=XYi2-LPrwm4&t=23s
                     https://www.geeksforgeeks.org/edit-distance-dp-5/

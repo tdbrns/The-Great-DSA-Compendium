@@ -1,5 +1,5 @@
 /*
-Algorithm:          Linear Search 
+Algorithm:          Linear Search using Iteration
 
 Task:               Use a brute force algorithm to find a specific integer in a sorted array.
 

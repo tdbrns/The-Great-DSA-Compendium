@@ -9,7 +9,7 @@ Solution:           The Fibonacci sequence is a sequence of numbers in which eac
                     In this approach, we calculate each number in the sequence by adding the two numbers preceding the number until the 
                     nth number is reached.
 
-Time Complexity:    O(N); N = number of Fibonacci values from 0 to n
+Time Complexity:    O(N); N = number of Fibonacci values in range 0 to n
 
 Space Complexity    O(1)
 

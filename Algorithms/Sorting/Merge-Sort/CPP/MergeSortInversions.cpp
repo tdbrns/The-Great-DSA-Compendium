@@ -1,10 +1,15 @@
 /*
-Algorithm:          Merge Sort
+Algorithm:          Counting Inversions in Merge Sort Algorithm
 
-Task:               Use a stable divide-and-conquer sorting algorithm to sort an array of integers in ascending order.
+Task:               Use a stable divide-and-conquer sorting algorithm to sort an array of integers in ascending order, and count the 
+                    total number of inversion required to sort the array.
 
 Solution:           Sort the array using the Merge Sort algorithm, which sorts the array by dividing it into subarrays until it has been
                     divided into separate single elements and placing those elements into a sorted array in the appropriate order.
+                    During the process of merging the subarrays into ascending order, when the current element of the left subarray is 
+                    greater than the current element of the right subarray, the current left subarray element and all the elements to its 
+                    right are considered inversions. If none of the left subarray elements are greater than any of the right subarray 
+                    elements, the total inversion count is 0.
 
 Time complexity:    O(N*log(N)); N = number of integers to be sorted
                     NOTE: worst-case scenario occurs when the input array is sorted in descending order.
@@ -12,6 +17,7 @@ Time complexity:    O(N*log(N)); N = number of integers to be sorted
 Space complexity:   O(N); N = maximum depth of the recursion stack + size of the temporary left and right subarrays
 
 Resources:          https://www.geeksforgeeks.org/merge-sort/
+                    https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/
 */
 
 #include <iostream>
@@ -21,7 +27,7 @@ using std::endl;
 using std::vector;
 
 // merge() has time complexity O(N).
-void merge(int currArray[], int leftIndex, int midIndex, int rightIndex)
+unsigned int merge(int currArray[], int leftIndex, int midIndex, int rightIndex)
 {
     int leftSize = midIndex - leftIndex + 1;        // Size of the left subarray.
     int rightSize = rightIndex - midIndex;          // Size of the right subarray.
@@ -37,6 +43,7 @@ void merge(int currArray[], int leftIndex, int midIndex, int rightIndex)
     int leftSubIndex = 0;           // Index of the left subarray.
     int rightSubIndex = 0;          // Index of the right subarray.
     int mergedIndex = leftIndex;    // Index of currArray that an element of leftSubarray or rightSubarray will be stored at.
+    unsigned int invCount = 0;
 
     // Sort the elements of leftSubarray and rightSubarray into currArray.
     while (leftSubIndex < leftSize && rightSubIndex < rightSize)
@@ -52,6 +59,10 @@ void merge(int currArray[], int leftIndex, int midIndex, int rightIndex)
         {
             currArray[mergedIndex] = rightSubarray[rightSubIndex];
             rightSubIndex++;
+
+            // If the current left subarray element is greater than the current right subarray element, count the current left 
+            // subarray element and all the elements to the right of it as an inversion.
+            invCount += (leftSize - leftSubIndex);
         }
 
         mergedIndex++;
@@ -72,14 +83,18 @@ void merge(int currArray[], int leftIndex, int midIndex, int rightIndex)
         rightSubIndex++;
         mergedIndex++;
     }
+
+    return invCount;
 }
 
 // mergeSort() has time complexity O(log(N)).
-void mergeSort(int currArray[], int leftIndex, int rightIndex)
+unsigned int mergeSort(int currArray[], int leftIndex, int rightIndex)
 {
-    // Base case; when the array has been divided into single elements, return.
+    unsigned int totalInversion = 0;
+
+    // Base case; when the array has been divided into single elements, return totalInversion, which is 0.
     if (leftIndex >= rightIndex)
-        return;
+        return totalInversion;
 
     int midIndex = (rightIndex + leftIndex) / 2;        // Stores the middle element that divides the current array into two subarrays.
 
@@ -87,21 +102,24 @@ void mergeSort(int currArray[], int leftIndex, int rightIndex)
     // down to the nearest whole number.
     
     // Recursively divide the left and right subarray in half until there are only single elements.
-    mergeSort(currArray, leftIndex, midIndex);        // Left subarray.
-    mergeSort(currArray, midIndex+1, rightIndex);     // Right subarray.
+    totalInversion += mergeSort(currArray, leftIndex, midIndex);        // Left subarray.
+    totalInversion += mergeSort(currArray, midIndex+1, rightIndex);     // Right subarray.
 
     // Merge the single elements into a sorted array.
-    merge(currArray, leftIndex, midIndex, rightIndex);
+    totalInversion += merge(currArray, leftIndex, midIndex, rightIndex);
+
+    return totalInversion;
 }
 
 int main()
 {
     int nums[] = { 12, 11, 13, 5, 6, 7, 10, 9};
     int size = sizeof(nums) / sizeof(nums[0]);
-    mergeSort(nums, 0, size-1);
+    unsigned int totalInversion = mergeSort(nums, 0, size-1);
     
     for (int i = 0; i < size; i++)
         cout << nums[i] << " ";
+    cout << "\nInversion Count: " << totalInversion << endl;
 
     return 0;
 }
