@@ -6,9 +6,13 @@ Task:               Given an array of containing N unique integers in the range 
 
 Solution:           Subtract the sum of all the integers in the array from the sum of all the integers in range [0, N].
 
-Time complexity:    O(N); N = size of the integer array
+Time complexity:    O(N)
+                        N = size of the integer array
 
-Space complexity:   O(1)
+Space complexity:   O(N)
+                        N = number of integers in the array
+
+Auxiliary space:    O(1)
 
 Resources:          https://leetcode.com/problems/missing-number/description/
 */

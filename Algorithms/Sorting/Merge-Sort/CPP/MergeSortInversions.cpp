@@ -11,10 +11,15 @@ Solution:           Sort the array using the Merge Sort algorithm, which sorts t
                     right are considered inversions. If none of the left subarray elements are greater than any of the right subarray 
                     elements, the total inversion count is 0.
 
-Time complexity:    O(N*log(N)); N = number of integers to be sorted
-                    NOTE: worst-case scenario occurs when the input array is sorted in descending order.
+Time complexity:    O(N*log(N))
+                        N = number of integers to be sorted
+                        NOTE: worst-case scenario occurs when the input array is sorted in descending order.
 
-Space complexity:   O(N); N = maximum depth of the recursion stack + size of the temporary left and right subarrays
+Space complexity:   O(N)
+                        N = maximum depth of the recursion stack and the number of integers in the array
+
+Auxiliary space:    O(N)
+                        N = number of integers in the subarrays
 
 Resources:          https://www.geeksforgeeks.org/merge-sort/
                     https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/

@@ -17,9 +17,14 @@ Solution:           We can solve this problem by using a stack. Iterate through 
                     then there are too many close brackets; if the stack is not empty after the for-loop is finished, then there are too
                     many open brackets. 
 
-Time complexity:    O(N); N = the length of input string
+Time complexity:    O(N)
+                        N = length of input string
 
-Space complexity:   O(N); N = the number of open brackets in the input string
+Space complexity:   O(N)
+                        N = length of input string / number of open brackets stored in the stack
+
+Auxiliary space:    O(N)
+                        N = number of open brackets stored in the stack
 
 Resources:          https://leetcode.com/problems/valid-parentheses/solutions/
 */

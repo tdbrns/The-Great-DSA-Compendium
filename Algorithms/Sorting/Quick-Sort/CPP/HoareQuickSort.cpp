@@ -9,15 +9,21 @@ Solution:           Sort the array using the Quick Sort algorithm, which sorts a
                     array is sorted. In this solution, the leftmost element of the array is chosen to be the pivot, and Hoare's 
                     partitioning scheme is used to divide the array according to the pivot.
 
-Time complexity:    Best-case/Average-case: O(N*log(N)); N = number of elements to be sorted
-                    Worst-case: O(N^2); N = number of elements to be sorted
-                    NOTE: worst-case occurs if the chosen pivot is the smallest number in the array.
+Time complexity:    Best-case/Average-case: O(N * log(N))
+                    Worst-case: O(N^2)
+                        N = number of elements to be sorted
+                        NOTE: worst-case occurs if the chosen pivot is the smallest number in the array.
                       
-Space complexity:   Best-case/Average-case: O(log(N)); N = size of each partition
-                    Worst-case: O(N); N = size of each partition + meximum depth of the recursion stack
+Space complexity:   Best-case/Average-case: O(log(N))
+                    Worst-case: O(N)
+                        N = maximum depth of the recursive call stack and the number of elements in the array
+
+Auxiliary space:    O(log(N))
+                        N = maximum depth of the recursive call stack and the number of elements in the partitions
 
 Resources:          https://www.youtube.com/watch?v=Hoixgm4-P4M
                     https://www.geeksforgeeks.org/quick-sort-algorithm/
+                    https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/
 */
 
 #include <iostream>
@@ -27,7 +33,7 @@ using std::endl;
 using std::vector;
 using std::swap;
 
-// partition() has time complexity O(N)
+// partition() has time complexity O(N).
 int partition(vector<int>& arr, int firstIndex, int lastIndex)
 {
     int pivot = arr[firstIndex];                // The pivot is the first element of arr.
@@ -60,20 +66,20 @@ int partition(vector<int>& arr, int firstIndex, int lastIndex)
     return 0;
 }
 
-// quickSort() has time complexity O(log(n))
+// quickSort() has time complexity O(log(n)).
 void quickSort(vector<int>& arr, int firstIndex, int lastIndex)
 {
-    // If there is only a single element left in a partition, return
+    // If there is only a single element left in a partition, return.
     if (firstIndex >= lastIndex)
         return;
     
-    // The partition index determines how the two partitions are split
-    // The element arr[partitionIndex] is in its correct place in the sorted array
+    // The partition index determines how the two partitions are split.
+    // The element arr[partitionIndex] is in its correct place in the sorted array.
     int partitionIndex = partition(arr, firstIndex, lastIndex);
 
-    // Recursively divide the left partition (smaller side of sorted array)
+    // Recursively divide the left partition (smaller side of sorted array).
     quickSort(arr, firstIndex, partitionIndex);
-    // Recursively divide the right partition (larger side of the sorted array)
+    // Recursively divide the right partition (larger side of the sorted array).
     quickSort(arr, partitionIndex + 1, lastIndex);
 }
 

@@ -3,9 +3,9 @@ Algorithm:          Edit Distance using Tabulation/Bottom-Up Approach (LeetCode 
 
 Task:               Given two strings str1 and str2 with lengths m and n respectively, find the minimum number of edit operations
                     required to convert str1 into str2. There are three types of edit operations:
-                     Insert - insert a character into str1
-                     Replace - replace a character in str1 with a character from str2
-                     Remove - remove a character from str1
+                        • Insert - insert a character into str1
+                        • Replace - replace a character in str1 with a character from str2
+                        • Remove - remove a character from str1
                     NOTE: If one string is empty, the edit distance will be equal to the length of the other string.
 
 Solution:           To find the minimum number of edit operation needed to transform str1 into str2, we can compare each character in 
@@ -19,9 +19,15 @@ Solution:           To find the minimum number of edit operation needed to trans
                     with the subproblem results produced when only str2 is empty, and the first row is initialized with the subproblem 
                     results produced when only str1 is empty.
 
-Time complexity:    O(M * N); M = length of str1, N = length of str2
+Time complexity:    O(M * N)
+                        M = length of str1
+                        N = length of str2
 
-Space complexity:   O(M * N); M * N = size of the dynamic programming table
+Space complexity:   O(M * N)
+                        M * N = size of the dynamic programming table
+
+Auxiliary space:    O(M * N)
+                        M * N = size of the dynamic programming table
 
 Resources:          https://www.youtube.com/watch?v=XYi2-LPrwm4&t=23s
                     https://www.geeksforgeeks.org/edit-distance-dp-5/

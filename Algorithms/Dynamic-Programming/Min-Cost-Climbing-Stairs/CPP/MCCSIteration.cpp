@@ -15,9 +15,13 @@ Solution:           The recurrence relation of this problem is reminiscent of th
                     staircase and return the cheapest step between the (n-2)th and (n-1)th step. This is done by using two variables 
                     to temporarily store the result of each subproblem.
 
-Time complexity:    O(N); N = total number of steps in the staircase
+Time complexity:    O(N)
+                        N = number of steps to climb to reach the top of the staircase
 
-Space complexity:   O(1)
+Space complexity:   O(N)
+                        N = number of integers in cost
+
+Auxiliary space:    O(1)
 
 Resources:          https://leetcode.com/problems/min-cost-climbing-stairs/solutions/
 */

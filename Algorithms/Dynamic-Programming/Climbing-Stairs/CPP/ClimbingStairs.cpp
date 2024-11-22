@@ -11,9 +11,12 @@ Solution:           Let x be any number of steps in range 1 to n. Our goal is to
                     then F(x) when x=2, and so on, until we find F(x) when x=n-1). Then, to find F(x) when x=n, we can add the result
                     of F(x) when x=n-1 and F(x) when x=n-2.  
 
-Time complexity:    O(N); N = number of steps to reach the top of the staircase
+Time complexity:    O(N)
+                        N = number of steps to reach the top of the staircase
 
 Space complexity:   O(1)
+
+Auxiliary space:    O(1)
 
 Resources:          https://www.youtube.com/watch?v=Y0lT9Fck7qI
                     https://www.geeksforgeeks.org/count-ways-reach-nth-stair/

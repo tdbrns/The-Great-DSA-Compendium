@@ -5,9 +5,13 @@ Task:               Use a brute force algorithm to find a specific integer in a 
 
 Solution:           Search for the target value in the sorted array using a Linear Search algorithm.
 
-Time complexity:    O(N); N = number of integers in the array
+Time complexity:    O(N)
+                        N = number of integers in the array
 
-Space complexity:   O(1)
+Space complexity:   O(N)
+                        N = number of integers in the array
+
+Auxiliary space:    O(1)
 
 Resources:          https://www.geeksforgeeks.org/linear-search/
 */
@@ -29,7 +33,6 @@ bool LinearSearch(int arr[], int size, int target)
 
     return found;
 }
-
 
 int main()
 {

@@ -3,9 +3,9 @@ Algorithm:          Edit Distance using Memoization/Top-Down Approach (LeetCode 
 
 Task:               Given two strings str1 and str2 with lengths m and n respectively, find the minimum number of edit operations
                     required to convert str1 into str2. There are three types of edit operations:
-                     Insert - insert a character into str1
-                     Replace - replace a character in str1 with a character from str2
-                     Remove - remove a character from str1
+                        • Insert - insert a character into str1
+                        • Replace - replace a character in str1 with a character from str2
+                        • Remove - remove a character from str1
                     NOTE: If one string is empty, the edit distance will be equal to the length of the other string.
 
 Solution:           To find the minimum number of edit operation needed to transform str1 into str2, we can compare each character in 
@@ -17,9 +17,15 @@ Solution:           To find the minimum number of edit operation needed to trans
                     In this solution, the result of each subproblem is stored in a 2-D cache of size (m+1) * (n+1). The cache is used to
                     avoid solving the same subproblem multiple times with each recursive function call.
 
-Time complexity:    O(M * N); M = length of str1, N = length of str2
+Time complexity:    O(M * N)
+                        M = length of str1
+                        N = length of str2
 
-Space complexity:   O(M * N); M * N = size of 2-D memoization cache + maximum depth of the recursion stack
+Space complexity:   O(M * N)
+                        M * N =  maximum depth of the recursive call stack and the size of the 2-D memoization cache
+
+Auxiliary space:    O(M * N)
+                        M * N = size of the 2-D memoization cache
 
 Resources:          https://www.youtube.com/watch?v=XYi2-LPrwm4&t=23s
                     https://www.geeksforgeeks.org/edit-distance-dp-5/

@@ -16,9 +16,14 @@ Solution:           The recurrence relation of this problem is reminiscent of th
                     problem. Each of the results are stored into a cache, which is used to prevent the function from calculating a
                     subproblem more than once.
 
-Time complexity:    O(N); N = total number of steps in the staircase
+Time complexity:    O(N)
+                        N = number of steps to climb to reach the top of the staircase
 
-Space complexity:   O(N); N = total number of steps in the staircase + maximum depth of the recursion stack
+Space complexity:   O(N)
+                        N = number of integers in cost
+
+Auxiliary space:    O(N)
+                        N = maximum depth of the recursion stack and the size of the memoization cache
 
 Resources:          https://leetcode.com/problems/min-cost-climbing-stairs/solutions/
 */

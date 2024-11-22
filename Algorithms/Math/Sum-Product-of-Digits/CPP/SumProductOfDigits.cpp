@@ -5,9 +5,12 @@ Task:               Given an integer n, return the difference between the produc
 
 Solution:           Use some arithmetic to obtain each digit of integer n and find the product and sum of the digits.
 
-Time Complexity:    O(N); N = number of digits in the integer.
+Time complexity:    O(N)
+                        N = number of digits in the integer.
 
-Space Complexity    O(1)
+Space complexity:   O(1)
+
+Auxiliary space:    O(1)
 
 Resources:          https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/description/
                     https://www.geeksforgeeks.org/program-for-sum-of-the-digits-of-a-given-number/

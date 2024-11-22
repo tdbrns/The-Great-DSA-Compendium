@@ -6,9 +6,15 @@ Task:               Given two strings str1 and str2 with lengths m and n respect
 
 Solution:           Use DP Tabulation to determine the length of the longest common subsequence between str1 and str2.
 
-Time complexity:    O(M*N); M = length of str1, N = length of str2
+Time complexity:    O(M * N)
+                        M = length of str1
+                        N = length of str2
 
-Space complexity:   O(M*N); M * N = size of LCS Table
+Space complexity:   O(M * N)
+                        M * N = size of LCS table
+
+Auxiliary space:    O(M * N)
+                        M * N = size of LCS table
 
 Resources:          https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
                     https://www.youtube.com/watch?v=Ua0GhsJSlWM
@@ -62,8 +68,8 @@ int LCS(string str1, string str2)
 
 int main()
 {
-    string str1 = "abcde";      // String 1.
-    string str2 = "ace";        // String 2.
+    string str1 = "abcde";
+    string str2 = "ace";
 
     int lcsLength = LCS(str1, str2);
     cout << "The longest common subsequence is " << lcsLength;

@@ -7,10 +7,14 @@ Solution:           Sort the array using the Bubble Sort algorithm, which iterat
                     if the left element is greater than the right element. The process essentially pushes the greater elements to the
                     right until all elements have been pushed into their correct positions in the sorted array.
 
-Time complexity:    O(N^2); N = number of integers to be sorted
-                    NOTE: worst-case scenario occurs when the array in sorted in the descending order.
+Time complexity:    O(N^2)
+                        N = number of integers to be sorted
+                        NOTE: worst-case scenario occurs when the array in sorted in the descending order.
 
-Space complexity:   O(1)
+Space complexity:   O(N)
+                        N = number of intgers in the array
+
+Auxiliary space:    O(1)
 
 Resources:          https://www.geeksforgeeks.org/bubble-sort-algorithm/    
 */

@@ -9,9 +9,11 @@ Solution:           The Fibonacci sequence is a sequence of numbers in which eac
                     In this approach, we find the nth number in the Fibonacci sequence by recursively performing the Fibonacci
                     formula on every value n we obtain after each recursive call of the Fibonacci function.
                     
-Time Complexity:    O(N); N = number of Fibonacci values in range 0 to n
+Time complexity:    O(N); N = number of Fibonacci values in range 0 to n
 
-Space Complexity    O(1)
+Space complexity:   O(1)
+
+Auxiliary space:    O(1)
 
 Resources:          https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
 */

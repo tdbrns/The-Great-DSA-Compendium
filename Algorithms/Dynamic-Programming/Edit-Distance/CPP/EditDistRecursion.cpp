@@ -3,9 +3,9 @@ Algorithm:          Edit Distance using Recursion (LeetCode Problem #72)
 
 Task:               Given two strings str1 and str2 with lengths m and n respectively, find the minimum number of edit operations
                     required to convert str1 into str2. There are three types of edit operations:
-                     Insert - insert a character into str1
-                     Replace - replace a character in str1 with a character from str2
-                     Remove - remove a character from str1
+                        • Insert - insert a character into str1
+                        • Replace - replace a character in str1 with a character from str2
+                        • Remove - remove a character from str1
                     NOTE: If one string is empty, the edit distance will be equal to the length of the other string.
 
 Solution:           To find the minimum number of edit operation needed to transform str1 into str2, we can compare each character in 
@@ -15,10 +15,16 @@ Solution:           To find the minimum number of edit operation needed to trans
                     perform all three edit operations to determine which one would ultimately lead to converting str1 into str2 with the
                     fewest edit operations possible.
 
-Time complexity:    O(3^M); M = length of str1 when str1.length <= str2.length
-                    O(3^N); N = length of str2 when str1.length > str2.length
+Time complexity:    O(3^M)
+                        M = length of str1 when str1.length <= str2.length
+                    O(3^N)
+                        N = length of str2 when str1.length > str2.length
 
-Space complexity:   O(M * N); M * N = size of 2-D memoization cache + maximum depth of the recursion stack
+Space complexity:   O(M * N)
+                        M * N = maximum depth of the recursive call stack
+
+Auxiliary space:    O(M * N)
+                        M * N = maximum depth of the recursive call stack
 
 Resources:          https://www.youtube.com/watch?v=XYi2-LPrwm4&t=23s
                     https://www.geeksforgeeks.org/edit-distance-dp-5/

@@ -14,9 +14,16 @@ Solution:           To merge the two sorted lists into one sorted list, we basic
                     in the list that still has nodes after the iterative insert operation are appended to the new list, and the head of
                     the new list is returned.
 
-Time complexity:    O(M + N); N = number of nodes in list1, M = number of nodes in list2
+Time complexity:    O(M + N)
+                        N = number of nodes in list1
+                        M = number of nodes in list2
 
-Space complexity:   O(M + N); M + N = number of nodes in the merged list
+Space complexity:   O(M + N)
+                        M = number of nodes in list1
+                        N = number of nodes in list2
+
+Auxiliary space:    O(M + N)
+                        M + N = size of the merged list
 
 Resources:          https://leetcode.com/problems/merge-two-sorted-lists/description/
                     https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/

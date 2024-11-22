@@ -7,9 +7,15 @@ Task:               A well-ordered number is a number with digits that are in st
 
 Solution:           Use a recursive function to print out each possible well-ordered number with n digits.
 
-Time Complexity:    O(N * 2^N); N = number of digits n, 2^N = number of n-digit numbers to be generated.
+Time complexity:    O(N * 2^N)
+                        N = number of digits n
+                        2^N = number of n-digit numbers to be generated
 
-Space Complexity    O(1)
+Space complexity:   O(N)
+                        N = maximum depth of the recursive call stack
+
+Auxiliary space:    O(N)
+                        N = maximum depth of the recursive call stack
 
 Resources:          https://www.geeksforgeeks.org/generate-k-digit-numbers-digits-strictly-increasing-order/
 */

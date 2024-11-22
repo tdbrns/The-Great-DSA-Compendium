@@ -13,9 +13,15 @@ Solution:           Use brute force to iteratively find the sum of each subarray
                     appears more than once in a subarray, the subarray should be skipped over. Note that this approach will probably
                     produce a "Time Limit Exceeded" error in LeetCode due to its poor runtime when processing larger input data.
 
-Time complexity:    O(k * N); k = the number of integers in a subarray of nums, N = the number of integers in nums
+Time complexity:    O(k * N)
+                        k = the number of integers in a subarray of nums
+                        N = the number of integers in nums
 
-Space complexity:   O(k); k = the number of integers in a subarray of nums
+Space complexity:   O(N)
+                        N = number of integers in nums and a subarray of nums
+
+Auxiliary space:    O(k)
+                        k = number of integers in a subarray of nums
 
 Resources:          https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/solutions/
 */

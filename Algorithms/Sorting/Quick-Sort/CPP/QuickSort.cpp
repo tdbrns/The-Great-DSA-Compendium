@@ -9,14 +9,20 @@ Solution:           Sort the array using the Quick Sort algorithm, which sorts e
                     is not included in either subarray), and recursively repeat the process until the array is sorted. In this solution, 
                     the rightmost element of the array is chosen to be the pivot.
 
-Time complexity:    Best-case/Average-case: O(N*log(N)); N = number of elements to be sorted
-                    Worst-case: O(N^2); N = number of elements to be sorted
-                    NOTE: worst-case occurs if the chosen pivot is the smallest number in array.
+Time complexity:    Best-case/Average-case: O(N * log(N))
+                    Worst-case: O(N^2)
+                        N = number of elements to be sorted
+                        NOTE: worst-case occurs if the chosen pivot is the smallest number in the array.
                       
-Space complexity:   Best-case/Average-case: O(log(N)); N = size of each partition
-                    Worst-case: O(N); N = size of each partition + maximum depth of the recursion stack
+Space complexity:   Best-case/Average-case: O(log(N))
+                    Worst-case: O(N)
+                        N = maximum depth of the recursive call stack and the number of elements in the array
 
-Resources:          https://www.geeksforgeeks.org/quick-sort-algorithm/
+Auxiliary space:    O(log(N))
+                        N = maximum depth of the recursive call stack and the number of elements in the partitions
+
+Resources:          https://www.youtube.com/watch?v=Hoixgm4-P4M
+                    https://www.geeksforgeeks.org/quick-sort-algorithm/
 */
 
 #include <iostream>

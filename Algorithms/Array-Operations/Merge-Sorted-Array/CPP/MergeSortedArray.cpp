@@ -12,9 +12,15 @@ Solution:           Since nums1 and nums2 are already sorted in non-decreasing o
                     with an n number of 0s, the best way to approach this task is to find the largest number of nums1 and nums2 and 
                     place it at the rightmost position of nums1 that contains a 0.
 
-Time complexity:    O(M + N); M = size of nums1, N = size of nums2
+Time complexity:    O(M + N)
+                        M = size of nums1
+                        N = size of nums2
 
-Space complexity:   O(1)
+Space complexity:   O(M + N)
+                        M = size of nums1
+                        N = size of nums2
+
+Auxiliary space:    O(1)
 
 Resources:          https://leetcode.com/problems/merge-sorted-array/solutions/
 */

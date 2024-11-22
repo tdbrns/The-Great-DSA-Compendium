@@ -13,9 +13,14 @@ Solution:           The Fibonacci sequence is a sequence of numbers in which eac
                     a top-down approach because we solve the problem of finding the nth Fibonacci number by dividing it into 
                     smaller subproblems through recursion.
 
-Time Complexity:    O(N); N = number of Fibonacci values in range 0 to n
+Time Complexity:    O(N)
+                        N = number of Fibonacci values in range 0 to n
 
-Space Complexity    O(N); N = number of Fibonacci values to be stored in the cache + maximum depth of the recursion stack
+Space Complexity    O(N)
+                        N = number of Fibonacci values to be stored in the cache / maximum depth of the recursion stack
+
+Auxiliary space:    O(N)
+                        N = number of Fibonacci values to be stored in the cache / maximum depth of the recursive call stack
 
 Resources:          https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
 '''

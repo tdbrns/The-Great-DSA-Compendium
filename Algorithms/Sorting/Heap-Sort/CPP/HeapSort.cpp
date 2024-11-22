@@ -5,67 +5,81 @@ Task:               Use an unstable, divide-and-conquer sorting algorithm to sor
 
 Solution:           Sort the array using the Heap Sort algorithm, which transforms the unsorted array into a max-heap - a binary tree
                     wherein the parent nodes are always greater than its child nodes and the root is the largest value in the unsorted
-                    part of the array.
+                    part of the array. The elements in the array are rearranged into a max-heap in-place, without creating an additional
+                    data structure like a binary search tree to hold the element values. This can be done because
 
-Time complexity:    O(N*log(N)); N = number of integers to be sorted
-                    NOTE: worst-case scenario occurs when the array in sorted in the descending order.
+Time complexity:    O(N * log(N))
+                        N = number of integers to be sorted
+                        NOTE: worst-case scenario occurs when the array in sorted in the descending order.
 
-Space complexity:   O(1)
+Space complexity:   O(N)
+                        N = number of integers in the array
 
-Resources:          https://www.geeksforgeeks.org/heap-sort/      
+Auxiliary space:    O(1)
+
+Resources:          https://www.geeksforgeeks.org/heap-sort/
+                    https://www.youtube.com/watch?v=2DmK_H7IdTo    
 */
 
 #include <iostream>
 using std::cout;
 using std::swap;
 
+// maxHeapify() has time complexity O(N).
 void maxHeapify(int arr[], int size, int index)
 {
-    // In a max-heap, the largest value must be the root of the heap.
-    // Set index as the root of the heap.
-    int indexOfLargest = index;
+    // NOTE: in a max-heap, the largest value must be the root of the heap.
+    int rootIndex = index;              // Index of the root of the heap.
+    int leftIndex = 2 * index + 1;      // Index of the left child of the root.
+    int rightIndex = 2 * index + 2;     // Index of the right child of the root.
     
-    // Indices of the left and right child nodes.
-    int leftIndex = 2 * index + 1;
-    int rightIndex = 2 * index + 2;
+    // If the left child is greater than the root, set the left child as the root.
+    if (leftIndex < size && arr[leftIndex] > arr[rootIndex])
+        rootIndex = leftIndex;
     
-    // If the left child from arr[] is greater than the root, set the left child as the root.
-    if (leftIndex < size && arr[leftIndex] > arr[indexOfLargest])
-        indexOfLargest = leftIndex;
+    // If the right child is greater than the root, set the right child as the root.
+    if (rightIndex < size && arr[rightIndex] > arr[rootIndex])
+        rootIndex = rightIndex;
     
-    // If the right child from arr[] is greater than the root, set the right child as the root.
-    if (rightIndex < size && arr[rightIndex] > arr[indexOfLargest])
-        indexOfLargest = rightIndex;
-    
-    // If index is no longer the root of the heap (i.e., if the largest value is not the root), swap the value of arr[index] with that
-    // of arr[indexOfLargest].
-    if (indexOfLargest != index)
+    // If arr[index] is no longer the root of the heap, swap arr[index] withS arr[rootIndex] and recursively max-heapify arr.
+    if (rootIndex != index)
     {
-        swap(arr[index], arr[indexOfLargest]);
-        maxHeapify(arr, size, indexOfLargest);
+        swap(arr[index], arr[rootIndex]);
+        maxHeapify(arr, size, rootIndex);
     }
 }
 
+// heapSort() has time complexity O(log(N)).
 void heapSort(int arr[], int size)
 {
     // Transform arr[] into a max-heap with the largest element as its root.
-    // Once this for loop is completed, the largest element will be the first element (arr[0]) of the array.
+    // Once this for loop is complete, the largest element will be arr[0].
     for (int i = size / 2 - 1; i >= 0; i--)
         maxHeapify(arr, size, i);
-    
-    // Swap largest element (arr[0]) with smallest element (arr[i]), which puts arr[0] in its correct position in the sorted array.
-    // Then, call maxHeapify to turn the heap back into a max-heap with the largest element as the root.
-    // Note: the elements that are placed in their correct position are not included in the maxHeapify call.
+
+    // 
     for (int i = size - 1; i > 0; i--)
     {
+        // Swap largest element (arr[0]) with smallest element (arr[i]), which puts arr[0] in its correct position in the sorted array.
         swap(arr[0], arr[i]);
+
+        // Call maxHeapify() to turn the heap back into a max-heap with the largest element as the root. The elements that have been 
+        // placed into their correct positions in the sorted array will not be included in the function call.
         maxHeapify(arr, i, 0);
     }
 }
 
 int main()
 {
-    int nums[] = { 12, 11, 13, 5, 6, 7 };
+    int nums[] = { 2, 8, 5, 3, 9, 1 };
+    /* Binary tree created by nums.
+                    2
+                  /   \
+                 8     5
+                / \   /
+               3   9 1
+    */
+   
     int size = sizeof(nums) / sizeof(nums[0]);
     heapSort(nums, size);
 

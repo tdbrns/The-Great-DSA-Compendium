@@ -5,14 +5,20 @@ Task:               Print out all the vertex values of an undirected graph that 
 
 Solution:           Use an iterative breadth-first search (BFS) algorithm to traverse the graph and print out the vertex values. BFS
                     works by first visiting a source vertex and then visiting the vertex's adjacent vertices before moving to the
-                    next level of the graph and doing the same thing until all vertices has been visited once. This implementation 
+                    next level of the graph and doing the same thing until all vertices has been visited exactly once. This implementation 
                     of BFS pushes visited vertices into a queue and uses the queue to determine which vertex will be the next source
                     vertex. Since graphs can contain cycles, a vector is used to keep track of the visited vertices so that each
                     vertex is only visited once.
 
-Time complexity:    O(V + E); V = total number of vertices, E = total number of edges
+Time complexity:    O(V + E)
+                        V = total number of vertices
+                        E = total number of edges
 
-Space complexity:   O(V); V = total number of vertices
+Space complexity:   O(V)
+                        V = total number of vertices in the adjacency list
+
+Auxiliary space:    O(V)
+                        V = number of visited and unvisited vertices stored in the queue and the vector respectively
 
 Resources:          https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
                     https://www.youtube.com/watch?v=pcKY4hjDrxk
@@ -27,7 +33,7 @@ using std::vector;
 using std::queue;
 
 // Breadth first search of an entire graph from a given source vertex. This function assumes that the graph is connected.
-void BFS(vector<vector<int>> adjList, int source)
+void bfs(vector<vector<int>> adjList, int source)
 {
     // A queue to store and keep track of the vertices that will be visited next.
     queue<int> q; 
@@ -47,7 +53,7 @@ void BFS(vector<vector<int>> adjList, int source)
 
         // Check each adjacent vertex of the current vertex. If an adjacent vertex has not been visited, mark it as visited and 
         // push it into the queue.
-        for (int vertex : adjList[current])
+        for (auto vertex : adjList[current])
         {
             if (!visitedVerts[vertex])
             {
@@ -106,10 +112,10 @@ int main()
 {
     /*  Create the graph below.
           1  -  3
-         /
-        0    \
-         \
-          2  -  4
+         / \
+        0   4
+         \ /
+          2
     */
     int vertexNum = 5;                               // Number of vertices in the graph.
     int sourceVertex = 0;                            // The very first vertex in the graph that will be visited in the search.
@@ -127,7 +133,7 @@ int main()
     addEdge(adjacencyList1, 1, 4);
     addEdge(adjacencyList1, 2, 4);
     cout << "BFS of Connected Graph from Vertex_0: ";
-    BFS(adjacencyList1, sourceVertex);
+    bfs(adjacencyList1, sourceVertex);
     cout << endl;
 
     /*  Create the disconnected graph below.

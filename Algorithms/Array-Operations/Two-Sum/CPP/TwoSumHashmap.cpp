@@ -9,9 +9,14 @@ Solution:           Iteratively subtract every integer in the array from the tar
                     if it does exist, then the current difference is a compliment of the current number in the array that will add up
                     to target.
 
-Time complexity:    O(N); N = size of the array of integers
+Time complexity:    O(N)
+                        N = number of integers in the array
 
-Space complexity:   O(1)
+Space complexity:   O(N)
+                        N = number of integers in the array and the hash map
+
+Auxiliary space:    O(N)
+                        N = number of integers in the hash map
 
 Resources:          https://leetcode.com/problems/two-sum/solutions/
 */
@@ -51,7 +56,7 @@ int main()
     vector<int> result = twoSum(numVect, target);
     cout << "[" << result.at(0) << ", " << result.at(1) << "]";
 
-        numVect = {3, 2, 4};
+    numVect = {3, 2, 4};
     target = 6;
     result = twoSum(numVect, target);
     cout << "[" << result.at(0) << ", " << result.at(1) << "]" << endl;

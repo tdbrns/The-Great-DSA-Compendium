@@ -6,10 +6,15 @@ Task:               Use a stable divide-and-conquer sorting algorithm to sort an
 Solution:           Sort the array using the Merge Sort algorithm, which sorts the array by dividing it into subarrays until it has been
                     divided into separate single elements and placing those elements into a sorted array in the appropriate order.
 
-Time complexity:    O(N*log(N)); N = number of integers to be sorted
-                    NOTE: worst-case scenario occurs when the input array is sorted in descending order.
+Time complexity:    O(N * log(N))
+                        N = number of integers to be sorted
+                        NOTE: worst-case scenario occurs when the input array is sorted in descending order.
 
-Space complexity:   O(N); N = maximum depth of the recursion stack + size of the temporary left and right subarrays
+Space complexity:   O(N)
+                        N = maximum depth of the recursion stack and the number of integers in the array
+
+Auxiliary space:    O(N)
+                        N = number of integers in the subarrays
 
 Resources:          https://www.geeksforgeeks.org/merge-sort/
 */

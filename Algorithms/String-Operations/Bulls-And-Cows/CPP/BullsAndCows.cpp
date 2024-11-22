@@ -15,10 +15,15 @@ Solution:           Iteratively compare the digits in the secret to the digits i
                     in the guess. Use two <char, int> hashmaps to record the occurence of non-bull digits in the secret and 
                     the guess to determine the number of cows in the guess.
 
-Time complexity:    O(N); N = length of the secret number 
+Time complexity:    O(N)
+                        N = length of the secret number 
 
-Space complexity:   O(N); N = size of the hashmaps 
-                    NOTE: worst-case scenario occurs when the guess number has no bulls or cows.
+Space complexity:   O(N)
+                        N = size of secret and guess / size of the hash maps 
+                        NOTE: worst-case scenario occurs when the guess number has no bulls or cows.
+                    
+Auxiliary space:    O(N)
+                        N = size of the hash maps
 
 Resources:          https://leetcode.com/problems/bulls-and-cows/description/
 */

@@ -11,9 +11,14 @@ Solution:           The Fibonacci sequence is a sequence of numbers in which eac
                     and returned. This is considered a bottom-up approach because we start by calculating the first number in the 
                     sequence and then working up to the nth number.
 
-Time Complexity:    O(N); N = number of Fibonacci values in range 0 to n
+Time Complexity:    O(N)
+                        N = number of Fibonacci values in range 0 to n
 
-Space Complexity    O(N); N = number of Fibonacci values to be stored in the table
+Space Complexity    O(N)
+                        N = number of Fibonacci values to be stored in the table
+
+Auxiliary space:    O(N)
+                        N = number of Fibonacci values to be stored in the table
 
 Resources:          https://www.w3schools.com/dsa/dsa_ref_tabulation.php
                     https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/

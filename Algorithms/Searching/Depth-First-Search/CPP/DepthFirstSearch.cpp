@@ -12,9 +12,15 @@ Solution:           Use a recursive depth-first search (DFS) algorithm to traver
                     This process will continue until all vertices in the graph have been visited once. Since graphs can contain 
                     cycles, a vector is used to keep track of the visited vertices so that each vertex is only visited once.
 
-Time complexity:    O(V + E); V = total number of vertices, E = total number of edges
+Time complexity:    O(V + E)
+                        V = total number of vertices
+                        E = total number of edges
 
-Space complexity:   O(v); V = total number of vertices
+Space complexity:   O(V)
+                        V = total number of vertices in the adjacency list
+
+Auxiliary space:    O(V)
+                        V = number of visited and unvisited vertices stored in the queue and the vector respectively
 
 Resources:          https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
                     https://www.youtube.com/watch?v=pcKY4hjDrxk
@@ -72,11 +78,11 @@ void addEdge(vector<vector<int>>& adjList, int vertex, int connectedVertex)
 int main()
 {
     /*  Create the graph below.
-          1  -  3S
-         /
-        0    \
-         \
-          2  -  4
+          1  -  3
+         / \
+        0   4
+         \ /
+          2 
     */
    int vertexNum = 5;                               // Number of vertices in the graph.
    int sourceVertex = 0;                            // The very first vertex in the graph that will be visited in the search.

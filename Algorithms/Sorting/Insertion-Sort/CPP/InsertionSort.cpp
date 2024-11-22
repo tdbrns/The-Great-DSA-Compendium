@@ -6,10 +6,14 @@ Task:               Use a stable sorting algorithm to sort an array of integers 
 Solution:           Sort the array using the Insertion Sort algorithm, which iteratively inserts the elements of the unsorted array into
                     the a sorted portion of the array until all elements are placed in their correct position in the sorted array.
                     
-Time complexity:    O(N^2); N = number of integers to be sorted
-                    NOTE: worst-case scenario occurs when the array in sorted in the descending order.
+Time complexity:    O(N^2)
+                        N = number of integers to be sorted
+                        NOTE: worst-case scenario occurs when the array in sorted in the descending order.
 
-Space complexity:   O(1)
+Space complexity:   O(N)
+                        N = number of integers in the array
+
+Auxiliary space:    O(1)
 
 Resources:          https://www.geeksforgeeks.org/insertion-sort-algorithm/
 */

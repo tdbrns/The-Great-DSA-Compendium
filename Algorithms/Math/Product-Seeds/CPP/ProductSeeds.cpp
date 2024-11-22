@@ -9,9 +9,14 @@ Task:               A "product seed" of a positive integer is a number that, whe
 Solution:           Since the product seed of an integer should be a factor of the integer, find all the factors of the integer and 
                     check each factor to see if it is a product seed of the integer.
 
-Time Complexity:    O(M + N); M = integers in range 1 to sqrt(num), N = number of factors of num.
+Time complexity:    O(N)
+                        M = number of integers in range 1 to sqrt(num) and the number of digits in the input number
 
-Space Complexity    O(N); N = number of factors of num.
+Space complexity:   O(N)
+                        N = number of factors of num and the number of seeds of num
+
+Auxiliary space:    O(N)
+                        N = number of factors of num and the number of seeds of numS
 
 Resources:          https://www.geeksforgeeks.org/seeds-or-seed-roots-of-a-number/
 */
@@ -24,7 +29,7 @@ using std::endl;
 using std::vector;
 using std::sqrt;
 
-// Return a vector containing all the factors of a given integer.
+// getFactors() has time complexity of O(sqrt(N)).
 vector<int> getFactors(int num)
 {
     vector<int> factors;
@@ -47,7 +52,7 @@ vector<int> getFactors(int num)
     return factors;
 }
 
-// Return the product of the digits of a given integer.
+// getDigitProduct() has time complexity O(N)
 int getDigitProduct(int num)
 {
     int product = 1;        // Product of the digits of an integer. Must be initialized to 1.
@@ -60,7 +65,7 @@ int getDigitProduct(int num)
     return product;
 }
 
-// Print all the product seeds of a given integer if there are any.
+// printProductSeeds() has time complexity O(N).
 void printProductSeeds(int num)
 {
     vector<int> seeds;
@@ -75,7 +80,7 @@ void printProductSeeds(int num)
         // Check each factor of num to see if it is a product seed.
         for (int i = 0; i < factors.size(); i++)
         { 
-            if (factors[i]*getDigitProduct(factors[i]) == num)
+            if (factors[i] * getDigitProduct(factors[i]) == num)
                 seeds.push_back(factors[i]);
         }
 

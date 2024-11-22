@@ -13,14 +13,19 @@ Solution:           Use the sliding window technique to iteratively find the sum
                     subarray and subtract its leftmost value from its sum and add the next element to its right to its sum to get the
                     sum of the next subarray with length of k; this is done iteratively to acquire the sum of each subarray in nums 
                     with fewer iterations than the brute force approach.
-                    To ensure that only subarrays that follow the conditions are considered, use a hashmap to keep track of the 
+                    To ensure that only subarrays that follow the conditions are considered, use a hash map to keep track of the 
                     frequency of the integers in each subarray; if an element appears more than once in a subarray, that subarray 
                     should be skipped over. Note that when applying the sliding window technique, each window consists of the elements 
                     of a subarray with length of k exist in range nums[i-k] to nums[i-1]. nums[i] is the next element to be added.
 
-Time complexity:    O(N); N = the number of integers in nums
+Time complexity:    O(N)
+                        N = number of integers in nums
 
-Space complexity:   O(k); k = the number of integers in a subarray of nums
+Space complexity:   O(N)
+                        N = number of integers in a subarray of nums
+
+Auxiliary space:    O(k)
+                        k = number of frequency values stored in the hash map
 
 Resources:          https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/solutions/
 */

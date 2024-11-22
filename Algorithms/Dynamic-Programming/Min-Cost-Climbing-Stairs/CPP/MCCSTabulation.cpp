@@ -16,9 +16,14 @@ Solution:           The recurrence relation of this problem is reminiscent of th
                     This is considered a bottom-up approach because we start by calculating the minimum cost of the first step and use 
                     the result to calculate the minimum cost of the second step and so on, until we reach the nth step.
 
-Time complexity:    O(N); N = total number of steps in the staircase
+Time complexity:    O(N)
+                        N = number of steps to climb to reach the top of the staircase
 
-Space complexity:   O(N); N = total number of steps in the staircase
+Space complexity:   O(N)
+                        N = number of integers in cost
+
+Auxiliary space:    O(N)
+                        N = size of the 1-D DP table
 
 Resources:          https://leetcode.com/problems/min-cost-climbing-stairs/solutions/
 */
