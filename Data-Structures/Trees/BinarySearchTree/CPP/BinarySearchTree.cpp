@@ -150,14 +150,16 @@ private:
         return current;
     }
 
-    // Recursively invert binary tree
+    // Recursively invert binary tree.
     TreeNode* _invertTree(TreeNode* current)
     {
+        // If there are no nodes in the tree
         if (current == nullptr)
             return nullptr;
 
-        TreeNode* leftChild = _invertTree(current->left);        // Left node of the current node after all its children are inverted.
-        TreeNode* rightChild = _invertTree(current->right);      // Right node of the current node after all its children are inverted.
+        // Recursively traverse down to the leaf nodes of the tree.
+        TreeNode* leftChild = _invertTree(current->left);        // Left node of the current node.
+        TreeNode* rightChild = _invertTree(current->right);      // Right node of the current node.
 
         // Swap the left the left child and the right child.
         current->left = rightChild;
@@ -219,6 +221,7 @@ public:
         return false;
     }
 
+    // Wrapper for _invertTree method.
     bool invert(TreeNode* current)
     {
         // If the inverted tree exists, return true; otherwise, return false.
@@ -365,14 +368,14 @@ int main()
     */
     TreeNode* root = new TreeNode(50);
     BinarySearchTree numBST(root);
-    (numBST.insert(numBST.getRoot(), 30)) ? printf("Insert 30 successful\n") : printf("Insert 30 failed\n");
-    (numBST.insert(numBST.getRoot(), 30)) ? printf("Insert 30 successful\n") : printf("Insert 30 failed\n");
-    (numBST.insert(numBST.getRoot(), 20)) ? printf("Insert 20 successful\n") : printf("Insert 20 failed\n");
-    (numBST.insert(numBST.getRoot(), 40)) ? printf("Insert 40 successful\n") : printf("Insert 40 failed\n");
-    (numBST.insert(numBST.getRoot(), 70)) ? printf("Insert 70 successful\n") : printf("Insert 70 failed\n");
-    (numBST.insert(numBST.getRoot(), 60)) ? printf("Insert 60 successful\n") : printf("Insert 60 failed\n");
-
+    (numBST.insert(numBST.getRoot(), 30)) ? printf("Insert 30 successful.\n") : printf("Insert 30 failed.\n");
+    (numBST.insert(numBST.getRoot(), 30)) ? printf("Insert 30 successful.\n") : printf("Insert 30 failed.\n");
+    (numBST.insert(numBST.getRoot(), 20)) ? printf("Insert 20 successful.\n") : printf("Insert 20 failed.\n");
+    (numBST.insert(numBST.getRoot(), 40)) ? printf("Insert 40 successful.\n") : printf("Insert 40 failed.\n");
+    (numBST.insert(numBST.getRoot(), 70)) ? printf("Insert 70 successful.\n") : printf("Insert 70 failed.\n");
+    (numBST.insert(numBST.getRoot(), 60)) ? printf("Insert 60 successful.\n") : printf("Insert 60 failed.\n");
     cout << endl;
+
     cout << "Inorder Traversal: ";
     numBST.traverseInOrder(numBST.getRoot());
     cout << endl;
@@ -386,9 +389,15 @@ int main()
     numBST.traverseLevelOrder(numBST.getRoot());
     cout << endl << endl;
 
-    (numBST.invert(numBST.getRoot())) ? printf("Tree inversion successful") : printf("Tree inversion failed.\n");
-
+    (numBST.find(numBST.getRoot(), 70)) ? printf("Value 70 found.\n") : printf("Value 70 not found.\n");
+    (numBST.remove(numBST.getRoot(), 55)) ? printf("Remove 55 successful.\n") : printf("Remove 55 failed.\n");
+    (numBST.remove(numBST.getRoot(), 70)) ? printf("Remove 70 successful.\n") : printf("Remove 70 failed.\n");
     cout << endl;
+
+    // NOTE: inverting the binary tree prevents find(), insert(), and remove() from working properly.
+    (numBST.invert(numBST.getRoot())) ? printf("Tree inversion successful.\n") : printf("Tree inversion failed.\n");
+    cout << endl;
+
     cout << "Inorder Traversal: ";
     numBST.traverseInOrder(numBST.getRoot());
     cout << endl;
@@ -402,12 +411,7 @@ int main()
     numBST.traverseLevelOrder(numBST.getRoot());
     cout << endl << endl;
 
-    (numBST.find(numBST.getRoot(), 70)) ? printf("Value 70 found!\n") : printf("Value 70 not found.\n");
-
-    (numBST.remove(numBST.getRoot(), 55)) ? printf("Remove 55 successful\n") : printf("Remove 55 failed\n");
-    (numBST.remove(numBST.getRoot(), 70)) ? printf("Remove 70 successful\n") : printf("Remove 70 failed\n");
-
-    cout << "Maximum Depth: " <<numBST.getMaxDepth(numBST.getRoot()) << endl;
+    cout << "Maximum Depth: " << numBST.getMaxDepth(numBST.getRoot()) << endl;
 
     return 0;
 }
