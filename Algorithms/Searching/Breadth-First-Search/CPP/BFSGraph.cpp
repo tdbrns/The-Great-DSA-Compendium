@@ -136,6 +136,7 @@ int main()
     bfs(adjacencyList1, sourceVertex);
     cout << endl;
 
+
     /*  Create the disconnected graph below.
           1     3
          /       \
@@ -143,13 +144,14 @@ int main()
          \       /
           2     5
     */
+   vertexNum = 6;
     vector<vector<int>> adjacencyList2(vertexNum);   // 2-D vector holding each vertex and the vertices connected to it via an edge.
     /*  Adjacency list for the graph above.
         vertex_0 -> 1 -> 2
         vertex_1 -> 0
         vertex_2 -> 0
-        vertex_3 -> 1 -> 4
-        vertex_4 -> 3 -> 4
+        vertex_3 -> 4
+        vertex_4 -> 3 -> 5
         vertex_5 -> 4
     */
     addEdge(adjacencyList2, 0, 1);

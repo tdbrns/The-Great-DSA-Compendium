@@ -111,6 +111,7 @@ int main()
          \       /
           2     5
     */
+   vertexNum = 6;
    vector<vector<int>> adjacencyList2(vertexNum);   // 2-D vector holding each vertex and the vertices connected to it via an edge.
    /*  Adjacency list for the graph above.
        vertex_0 -> 1 -> 2

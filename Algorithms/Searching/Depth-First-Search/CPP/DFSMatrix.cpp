@@ -10,7 +10,7 @@ Solution:           Use a recursive depth-first search (DFS) algorithm to traver
                     unvisited adjacent elements are pushed onto the stack. If the current element has no unvisited adjacent elements, 
                     then the next element to be removed from the top of the stack will be checked for any unvisited adjacent elements.
                     This process will continue until all elements in the graph have been visited exactly once. To prevent an element
-                    from being visited more than once, a vector of boolean values is used to keep track of the elements that have been
+                    from being visited more than once, an array of boolean values is used to keep track of the elements that have been
                     visited.
 
 Time complexity:    O(M * N)
@@ -35,25 +35,33 @@ using std::vector;
 
 void recurDFS(vector<vector<char>>& matrix, vector<bool>& visited, int r_i, int c_i, int rSize, int cSize)
 {
+    // Base case; if either the row or column index is out of range, return.
     if (r_i < 0 || c_i < 0 || r_i >= rSize || c_i >= cSize)
         return;
     
-    int visited_i = r_i * cSize + c_i;          // Position of current matrix element in the visited array.
+    int visited_i = r_i * cSize + c_i;          // Index of current matrix element in the visited array.
+
+    // Base case; if the current element has already been visited once, return.
     if (visited[visited_i] == true)
         return;
     
+    // Print the current element and flag it as visited.
     cout << matrix[r_i][c_i] << " ";
     visited[visited_i] = true;
 
+    // Recursively visited the elements adjacent to the current element.
     recurDFS(matrix, visited, r_i, c_i - 1, rSize, cSize);      // Left 1 element in matrix.
     recurDFS(matrix, visited, r_i, c_i + 1, rSize, cSize);      // Right 1 element in matrix.
     recurDFS(matrix, visited, r_i - 1, c_i, rSize, cSize);      // Up 1 element in matrix.
     recurDFS(matrix, visited, r_i + 1, c_i, rSize, cSize);      // Down 1 element in matrix.
 }
 
+// Wrapper function for recurDFS()
 void dfs(vector<vector<char>>& matrix, int r_i, int c_i, int rSize, int cSize)
 {
+    // Stores the status (visited or unvisited) of each element in the matrix. All elements are initialized as unvisited (false).
     vector<bool> visited(rSize * cSize, false);
+
     recurDFS(matrix, visited, r_i, c_i, rSize, cSize);
 }
 
