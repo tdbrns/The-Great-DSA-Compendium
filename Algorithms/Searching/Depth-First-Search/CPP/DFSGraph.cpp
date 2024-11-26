@@ -5,10 +5,10 @@ Task:               Print out all the vertex values of an undirected graph that 
 
 Solution:           Use a recursive depth-first search (DFS) algorithm to traverse the graph and print out the vertex values. DFS
                     works by first visiting a source vertex and pushing its unvisited adjacent vertices onto a stack - in this case, 
-                    the DFS function is called recursively to create a call stack that will keep track of any adjacent unvisited
+                    the dfs function is called recursively to create a call stack that will keep track of any adjacent unvisited
                     vertices. Then, the vertex at the top of the function call stack is removed from the stack and visited, and its 
                     unvisited adjacent vertices are pushed onto the stack. If the current vertex has no unvisited adjacent vertices, 
-                    then the next vertex to be removed from the top of the stack will checked for any unvisited adjacent vertices.
+                    then the next vertex to be removed from the top of the stack will be checked for any unvisited adjacent vertices.
                     This process will continue until all vertices in the graph have been visited once. Since graphs can contain 
                     cycles, a vector is used to keep track of the visited vertices so that each vertex is only visited once.
 
@@ -46,8 +46,8 @@ void recursiveDFS(vector<vector<int>> adjList, vector<bool>& visitedVerts, int c
             recursiveDFS(adjList, visitedVerts, vertex);
 }
 
-// Initialize the list of visited vertices before calling the recursive DFS function.
-void DFS(vector<vector<int>> adjList, int source)
+// Initialize the list of visited vertices before calling the recursive dfs function.
+void dfs(vector<vector<int>> adjList, int source)
 {
     // Keeps track of vertices that have already been visited; initialize all visited vertices to false (unvisited).
     vector<bool> visitedVerts(adjList.size(), false);
@@ -100,7 +100,7 @@ int main()
    addEdge(adjacencyList1, 1, 4);
    addEdge(adjacencyList1, 2, 4);
    cout << "DFS of Connected Graph from Vertex_0: ";
-   DFS(adjacencyList1, sourceVertex);
+   dfs(adjacencyList1, sourceVertex);
    cout << endl;
 
 

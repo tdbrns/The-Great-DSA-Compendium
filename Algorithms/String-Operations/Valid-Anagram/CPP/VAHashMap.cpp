@@ -6,7 +6,8 @@ Task:               Given two string "s" and "t", return "true" if "t" is an ana
 Solution:           An anagram should have the same character frequency as the original word or phrase. Use a hash map to record the 
                     frequency of the characters in string s and the subract the frequency of characters in s by the frequency of 
                     characters in t. If the value of each character frequency in the hash map is 0, then t is an anagram of s because 
-                    they both have the same character frequency; otherwise, t is not an anagram of s.
+                    they both have the same character frequency; if the value of each character frequency is less than 0, t is not an 
+                    anagram of s.
 
 Time complexity:    O(N)
                         N = number of characters in s or t
@@ -46,6 +47,7 @@ bool isAnagram(string s, string t)
     {
         uMp[t[i]]--;
 
+        // If a character has a value less than 0, t is not an anagram of s.
         if (uMp[t[i]] < 0)
         {
             result = false;
