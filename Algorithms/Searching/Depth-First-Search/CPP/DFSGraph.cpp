@@ -1,26 +1,28 @@
 /*
-Algorithm:          Depth-First Search (DFS) for a Graph
+Algorithm:          Recursive Depth-First Search (DFS) for a Graph
 
-Task:               Print out all the vertex values of an undirected graph that is either connnected or disconnected.
+Task:               Print out the value of each vertex in an undirected graph that is either connnected or disconnected.
 
-Solution:           Use a recursive depth-first search (DFS) algorithm to traverse the graph and print out the vertex values. DFS
-                    works by first visiting a source vertex and pushing its unvisited adjacent vertices onto a stack - in this case, 
-                    the dfs function is called recursively to create a call stack that will keep track of any adjacent unvisited
-                    vertices. Then, the vertex at the top of the function call stack is removed from the stack and visited, and its 
-                    unvisited adjacent vertices are pushed onto the stack. If the current vertex has no unvisited adjacent vertices, 
-                    then the next vertex to be removed from the top of the stack will be checked for any unvisited adjacent vertices.
-                    This process will continue until all vertices in the graph have been visited once. Since graphs can contain 
-                    cycles, a vector is used to keep track of the visited vertices so that each vertex is only visited once.
+Solution:           Use a recursive depth-first search (DFS) algorithm to traverse the graph and print each vertex value. DFS
+                    traverses the graph by visiting all the vertices in one path starting from the source vertex, backtracking to
+                    previously visited vertices once the path has been fully explored, and visiting all the paths that stem from those
+                    vertices until all the vertices in the graph have been visited exactly once.
+                    DFS uses a stack to keep track of adjacent unvisited vertices; in this case, a recursive call stack is used. When a 
+                    vertex is visited, it is popped from the top of the recursive call stack and marked as "visited" before its adjacent
+                    vertices are pushed onto the stack. If the vertex has no unvisited adjacent vertices, the next vertex at the top of 
+                    the call stack is checked for any unvisited adjacent vertex. This process will continue until there are no more
+		            unvisited vertices in the graph. To prevent a vertex from being visited more than once, an Boolean array is used 
+                    to keep track of the visited vertices.
 
 Time complexity:    O(V + E)
                         V = total number of vertices
                         E = total number of edges
 
 Space complexity:   O(V)
-                        V = total number of vertices in the adjacency list
+                        V = number of vertices in the adjacency list / maximum depth of the recursive call stack
 
 Auxiliary space:    O(V)
-                        V = number of visited and unvisited vertices stored in the queue and the vector respectively
+                        V = maximum depth of the recursive call stack / size of the visited array
 
 Resources:          https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
                     https://www.youtube.com/watch?v=pcKY4hjDrxk

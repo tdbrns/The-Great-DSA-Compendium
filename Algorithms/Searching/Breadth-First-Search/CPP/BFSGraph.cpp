@@ -1,14 +1,17 @@
 /*
 Algorithm:          Iterative Breadth-First Search (BFS) for a Graph
 
-Task:               Print out all the vertex values of an undirected graph that is either connnected or disconnected.
+Task:               Print out the value of each vertex in an undirected graph that is either connnected or disconnected.
 
-Solution:           Use an iterative breadth-first search (BFS) algorithm to traverse the graph and print out the vertex values. BFS
-                    works by first visiting a source vertex and then visiting the vertex's adjacent vertices before moving to the
-                    next level of the graph and doing the same thing until all vertices has been visited exactly once. This implementation 
-                    of BFS pushes visited vertices into a queue and uses the queue to determine which vertex will be the next source
-                    vertex. Since graphs can contain cycles, a vector is used to keep track of the visited vertices so that each
-                    vertex is only visited once.
+Solution:           Use an iterative breadth-first search (BFS) algorithm to traverse the graph and print each vertex value. BFS 
+                    traverses the graph by visiting a source vertex, pushing its adjacent unvisited vertices into a queue, and 
+                    visiting the adjacent vertices of the vertices that are popped from the queue; this process is repeated until all 
+                    the vertices in the graph have been visited exactly once.
+                    BFS uses a queue to keep track of adjacent unvisited vertices. When an vertex is visited, it is flagged as "visited"
+                    and popped from the front of the queue before its adjacent unvisited vertices are pushed into the queue. If the
+                    vertex has no adjacent unvisited vertices, the next vertex at the front of the queue is checked for adjacent
+                    unvisited vertices. This process will continue until there are no more unvisited vertices in the graph. To prevent 
+                    an vertex from being visited more than once, a Boolean array is used to keep track of the visited vertices.
 
 Time complexity:    O(V + E)
                         V = total number of vertices
@@ -73,7 +76,7 @@ void disconnectedBFS(vector<vector<int>> adjList)
     // Go through each vertex in the graph and set it as the source vertex regardless of whether or not is is connected to anything.
     for (int vertex = 0; vertex < adjList.size(); vertex++)
     {
-        // If the vertex has not been visited, perform BFS with that vertex as the source vertex.
+        // If the vertex has not been visited, perform a BFS with that vertex as the source vertex.
         if (!visitedVerts[vertex])
         {
             queue<int> q; 
