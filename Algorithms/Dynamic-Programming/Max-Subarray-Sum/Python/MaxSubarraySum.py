@@ -1,4 +1,4 @@
-/*
+'''
 Algorithm:          Maximum Subarray Sum (LeetCode Problem #53)
 
 Task:               Given an integer array, find the subarray with the largest sum and return the sum.
@@ -17,29 +17,18 @@ Space complexity:   O(N)
 Auxiliary space:    O(1)
 
 Resources:          https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
-*/
+'''
 
-#include <iostream>
-#include <vector>
-using std::cout;
-using std::endl;
-using std::vector;
-using std::max;
+def maxSubarraySum(nums: list[int]) -> int:
+    currMax = nums[0]       # Largest value between the sum of the current subarray and nums[i].
+    maxSum = nums[0]        # Sum of the maximum subarray in nums.
 
-int maxSubarraySum (vector<int>& nums)
-{
-    int currMax = nums[0];       // Largest value between the sum of the current subarray and nums[i]; initialized with nums[0].
-    int maxSum = nums[0];        // Sum of the maximum subarray in nums; initialized with nums[0].
-
-    for (int i = 1; i < nums.size(); i++) 
-    {
-        currMax = max(currMax + nums[i], nums[i]);
-        maxSum = max(currMax, maxSum);
-    }
-
-    return maxSum;
-}
-/* maxSubarraySum() when nums = [3, 2, -1, 7, -8, 3, 2]
+    for i in range(1, len(nums)):
+        currMax = max(currMax + nums[i], nums[i])
+        maxSum = max(currMax, maxSum)
+    
+    return maxSum
+'''maxSubarraySum() when nums = [3, 2, -1, 7, -8, 3, 2]
     init.   currMax = 3   maxSum = 3
     1.      nums[i] = 2   currMax = max(3+2, 3) = 5       maxSum = max(5, 3) = 5
     2.      nums[i] = -1  currMax = max(5+(-1), -1) = 4   maxSum = max(5, 4) = 5
@@ -48,22 +37,16 @@ int maxSubarraySum (vector<int>& nums)
     5.      nums[i] = 3   currMax = max(3+3, 3) = 6       maxSum = max(6, 11) = 11
     6.      nums[i] = 2   currMax = max(6+2, 2) = 8       maxSum = max(8, 11) = 11
     return 11
-*/
+'''
 
-int main()
-{
-    vector<int> nums = {3, 2, -1, 7, -8, 3, 2};
-    cout << maxSubarraySum(nums) << endl;
-    // [3, 2, -1, 7] is the subarray with the largest sum.
+nums = [3, 2, -1, 7, -8, 3, 2]
+print(maxSubarraySum(nums))
+# [3, 2, -1, 7] is the subarray with the largest sum.
 
-    nums = {5, 4, -1, 7, 8};
-    cout << maxSubarraySum(nums) << endl;
-    // [5, 4, -1, 7, 8] is the subarray with the largest sum.
+nums - [5, 4, -1, 7, 8]
+print(maxSubarraySum(nums))
+# [5, 4, -1, 7, 8] is the subarray with the largest sum.
 
-    nums = {1};
-    cout << maxSubarraySum(nums) << endl;
-    // [1] is the subarray with the largest sum.
-
-
-    return 0;
-}
+nums = [1]
+print(maxSubarraySum(nums))
+# [1] is the subarray with the largest sum.

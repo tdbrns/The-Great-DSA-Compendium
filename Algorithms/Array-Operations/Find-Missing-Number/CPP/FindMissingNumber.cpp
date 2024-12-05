@@ -39,8 +39,8 @@ int findMissingNumber(vector<int>& nums)
 
 int main()
 {
-    vector<int> array1 = {0, 2, 3, 4};
-    cout << findMissingNumber(array1);
+    vector<int> nums = {0, 2, 3, 4};
+    cout << findMissingNumber(nums);
 
     return 0;
 }
