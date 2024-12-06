@@ -1,5 +1,5 @@
 /*
-Algorithm:          Lowest Common Ancestor of a Binary Search Tree (Leetcode Problem #235)
+Algorithm:          Lowest Common Ancestor of a Binary Search Tree using Recursion (Leetcode Problem #235)
 
 Task:               Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes p and q in the BST. 
                     Assume that p and q will always exist in the BST. The lowest common ancestor is defined between two nodes p and q as 
@@ -15,9 +15,7 @@ Time complexity:     O(log(N))
                         N = number of nodes in the binary search tree
 
 Space complexity:   O(N)
-                        N = number of nodes in the binary search tree
-                        NOTE: in this solution, two additional copies of the BST are used to find node p and node q respectively, which
-                              actually gives a space complexity of O(3N); this can be improved
+                        N = number of nodes in the binary search tree / maximum depth of the recursive call stack
                      
 Auxiliary space:    O(N)
                         N = number of nodes in the binary search tree
@@ -44,35 +42,16 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q)
     // If the BST is empty, return nullptr.
     if (root == nullptr)
         return nullptr;
-    
-    TreeNode* pCurr = root;     // Node used to traverse a copy of the BST to find p.
-    TreeNode* qCurr = root;     // Node used to traverse a copy of the BST to find q.
-    TreeNode* lca = nullptr;    // Lowest common ancestor.
 
-    while (true)
-    {
-        // If the current node must be visited when finding p and q, it is a common ancestor.
-        if (pCurr->val == qCurr->val)
-            lca = pCurr;
+    // If root is greater than both p and q, move to the left node.
+    if (root->val > p->val && root->val > q->val)
+        return lowestCommonAncestor(root->left, p, q);
+    // If root is less than both p and q, move to the right node.
+    else if (root->val < p->val && root->val < q->val)
+        return lowestCommonAncestor(root->right, p, q);
 
-        // If either p->val or q->val is equal to current->val, break out of the loop to return the current LCA.
-        if (pCurr->val == p->val || qCurr->val == q->val)
-            break;
-
-        // Traverse the child nodes of pCurr to find node p.
-        if (pCurr->val > p->val)
-            pCurr = pCurr->left;
-        else if (pCurr->val < p->val)
-            pCurr = pCurr->right;
-        
-        // Traverse the child nodes of qCurr to find node q.
-        if (qCurr->val > q->val)
-            qCurr = qCurr->left;
-        else if (qCurr->val < q->val)
-            qCurr = qCurr->right;
-    }
-
-    return lca;
+    // Base case; if either p->val or q-> is equal to root->val, return root.
+    return root;
 }
 
 int main()

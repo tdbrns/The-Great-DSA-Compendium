@@ -1,5 +1,5 @@
 /*
-Algorithm:          Lowest Common Ancestor of a Binary Search Tree (Leetcode Problem #235)
+Algorithm:          Lowest Common Ancestor of a Binary Search Tree using Iteration (Leetcode Problem #235)
 
 Task:               Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes p and q in the BST. 
                     Assume that p and q will always exist in the BST. The lowest common ancestor is defined between two nodes p and q as 
@@ -16,8 +16,6 @@ Time complexity:     O(log(N))
 
 Space complexity:   O(N)
                         N = number of nodes in the binary search tree
-                        NOTE: in this solution, two additional copies of the BST are used to find node p and node q respectively, which
-                              actually gives a space complexity of O(3N); this can be improved
                      
 Auxiliary space:    O(N)
                         N = number of nodes in the binary search tree
@@ -45,34 +43,22 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q)
     if (root == nullptr)
         return nullptr;
     
-    TreeNode* pCurr = root;     // Node used to traverse a copy of the BST to find p.
-    TreeNode* qCurr = root;     // Node used to traverse a copy of the BST to find q.
-    TreeNode* lca = nullptr;    // Lowest common ancestor.
+    TreeNode* current = root;       // Node used to traverse a copy of the BST to find either p or q. 
 
     while (true)
     {
-        // If the current node must be visited when finding p and q, it is a common ancestor.
-        if (pCurr->val == qCurr->val)
-            lca = pCurr;
-
-        // If either p->val or q->val is equal to current->val, break out of the loop to return the current LCA.
-        if (pCurr->val == p->val || qCurr->val == q->val)
+        // If current is greater than both p and q, move to the left node.
+        if (current->val > p->val && current->val > q->val)
+            current = current->left;
+        // If the current is less than both p and q, move to the right node.
+        else if (current->val < p->val && current->val < q->val)
+            current = current->right;
+        // If either p->val or q-> is equal to current->val, break from loop and return current.
+        else
             break;
-
-        // Traverse the child nodes of pCurr to find node p.
-        if (pCurr->val > p->val)
-            pCurr = pCurr->left;
-        else if (pCurr->val < p->val)
-            pCurr = pCurr->right;
-        
-        // Traverse the child nodes of qCurr to find node q.
-        if (qCurr->val > q->val)
-            qCurr = qCurr->left;
-        else if (qCurr->val < q->val)
-            qCurr = qCurr->right;
     }
 
-    return lca;
+    return current;
 }
 
 int main()
