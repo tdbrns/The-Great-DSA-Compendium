@@ -7,9 +7,9 @@ Task:               You are playing Bulls and Cows with a friend. You write down
                     guess that are in your secret number but are located in the wrong position (i.e., the non-bull digits in the guess
                     that could be rearranged such that they become bulls). Given the secret number and your friend's guess, return the
                     hint for your friend's guess.
-
                     The hint should be formatted as "xAyB", where "x" is the number of bulls and "y" is the number of cows. Both the
                     secret and the guess may contain duplicate digits. The secret and the guess are always of equal length.
+                    
 Solution:           Iteratively compare the digits in the secret to the digits in the guess (i.e., compare the 1st secret digit
                     to the 1st guess digit, the 2nd secret digit to the 2nd guess digit, and so on) to determine the number of bulls
                     in the guess. Use two <char, int> hashmaps to record the occurence of non-bull digits in the secret and 
