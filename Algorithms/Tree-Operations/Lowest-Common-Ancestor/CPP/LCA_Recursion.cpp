@@ -18,7 +18,7 @@ Space complexity:   O(N)
                         N = number of nodes in the binary search tree / maximum depth of the recursive call stack
                      
 Auxiliary space:    O(N)
-                        N = number of nodes in the binary search tree
+                        N = maximum depth of the recursive call stack
 
 Resources:          https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/solutions/
                     https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/

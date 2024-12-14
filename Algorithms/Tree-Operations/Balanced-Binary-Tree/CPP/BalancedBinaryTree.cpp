@@ -11,13 +11,14 @@ Solution:           Use recursion to determine if each node in the given binary 
                     difference is ever greater than 1, then the tree cannot be considered height-balanced and false is returned; otherwise, 
                     true is returned.
 
-Time complexity:    O(N)
+Time complexity:    O(N * log(N))
                         N = number of nodes in binary tree
 
 Space complexity:   O(N)
-                        N = number of nodes in binary tree
+                        N = number of nodes in binary tree / maximum depth of the recursive call stack
 
-Auxiliary space:    O(1)
+Auxiliary space:    O(N)
+                        N = maximum depth of the recursive call stack
 
 Resources:          https://leetcode.com/problems/balanced-binary-tree/solutions/
 */
