@@ -61,6 +61,17 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q)
     return current;
 }
 
+// Delete all nodes in a tree.
+void clearTree(TreeNode* root)
+{
+    if (root != nullptr)
+    {
+        clearTree(root->left);
+        clearTree(root->right);
+        delete root;
+    }
+}
+
 int main()
 {
     /*  Create the binary tree below:
@@ -82,6 +93,8 @@ int main()
     root->left->right->left = new TreeNode(3);
     root->left->right->right = new TreeNode(5);
 
+
+    // Test case 1.
     TreeNode* p = new TreeNode(2);
     TreeNode* q = new TreeNode(8);
     TreeNode* lca = lowestCommonAncestor(root, p, q);
@@ -90,6 +103,8 @@ int main()
     delete p;
     delete q;
 
+
+    // Test case 2.
     p = new TreeNode(2);
     q = new TreeNode(4);
     lca = lowestCommonAncestor(root, p, q);
@@ -97,6 +112,8 @@ int main()
         cout << "Lowest common ancestor of " << p->val << " and " << q->val << " is " << lca->val << endl;
     delete p;
     delete q;
+
+    clearTree(root);
 
     return 0;
 }
