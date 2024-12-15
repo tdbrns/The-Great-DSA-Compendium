@@ -51,16 +51,19 @@ vector<int> twoSum(vector<int>& nums, int target)
 
 int main() 
 {
+    // Test case 1
     vector<int> numVect = {2, 7, 11, 15};
     int target = 9;
     vector<int> result = twoSum(numVect, target);
     cout << "[" << result.at(0) << ", " << result.at(1) << "]";
 
+    // Test case 2
     numVect = {3, 2, 4};
     target = 6;
     result = twoSum(numVect, target);
     cout << "[" << result.at(0) << ", " << result.at(1) << "]" << endl;
 
+    // Test case 3
     numVect = {2, 1};
     target = 4;
     result = twoSum(numVect, target);

@@ -5,7 +5,8 @@ Task:               Given head, the head of a linked list, determine if the link
                     if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos 
                     is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a 
                     parameter. Return true if there is a cycle in the linked list. Otherwise, return false.
-                    NOTE: if the linked list is empty, it does not have a cycle.
+                    NOTE:
+                        • If the linked list is empty, it does not have a cycle.
 
 Solution:           Use Floyd's cycle finding algorithm, which involves traversing the linked list with two pointers moving at different
                     speeds. 
@@ -13,8 +14,9 @@ Solution:           Use Floyd's cycle finding algorithm, which involves traversi
                     nodes at a time. Both pointers start at the head of the list and traverse the linked list at their respective speeds 
                     until one of them becomes null or both of them point to the same node in the list. This can be used to indicate a 
                     cycle.
-                    • If at least one of the pointers becomes null, the linked list has no cycles.
-                    • If both pointers point to the same node, then the linked list has a cycle.
+                    NOTE:
+                        • If at least one of the pointers becomes null, the linked list has no cycles.
+                        • If both pointers point to the same node, then the linked list has a cycle.
 
 Time complexity:    O(N)
                         N = number of nodes in the linked list
@@ -88,6 +90,7 @@ void clearList(ListNode* head)
 
 int main()
 {
+    // Test case 1
     /* Create linked list below:
         3 → 2 → 0 → -4
             ↑        ↓
@@ -101,6 +104,7 @@ int main()
     (hasCycle(head)) ? cout << "There is a cycle in the list.\n" : cout << "There is not a cycle in the list.\n";
     clearList(head);
 
+    // Test case 2
     /* Create linked list below:
         1 → 2
         ↑   ↓
@@ -112,6 +116,7 @@ int main()
     (hasCycle(head)) ? cout << "There is a cycle in the list.\n" : cout << "There is not a cycle in the list.\n";
     clearList(head);
 
+    // Test case 3
     /* Create linked list below:
         1 → 
     */

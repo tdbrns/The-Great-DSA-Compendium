@@ -117,7 +117,7 @@ void printList(ListNode* list)
 
 int main()
 {
-    // Example 1
+    // Test case 1.
     ListNode* list1 = new ListNode(1);
     list1->next = new ListNode(2);
     list1->next->next = new ListNode(4);
@@ -133,19 +133,22 @@ int main()
     delete list1;
     delete list2;
 
-    // Example 2
+
+    // Test case 2.
     list1 = nullptr;
     list2 = nullptr;
     list3 = mergeTwoLists(list1, list2);
     printList(list3);
 
-    // Example 3
+
+    // Test case 3.
     list1 = nullptr;
     list2 = new ListNode(0);
     list3 = mergeTwoLists(list1, list2);
     printList(list3);
 
     delete list2;
+    
 
     return 0;
 }

@@ -58,17 +58,19 @@ def twoSum(nums: list[int], target: int) -> list[int]:
     # If the target is not found, return None.
     return None
 
-
+# Test case 1
 nums = [2, 7, 22, 15]
 target = 9
 result = twoSum(nums, target)
 print(result)
 
+# Test case 2
 nums = [3, 2, 4]
 target = 6
 result = twoSum(nums, target)
 print(result)
 
+# Test case 3
 nums = [2, 1]
 target = 4
 result = twoSum(nums, target)
