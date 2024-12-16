@@ -13,17 +13,33 @@ Task:               Implement a first in first out (FIFO) queue using only two s
                           "is empty" operations are valid.
                     
 Solution:           Create a queue by storing its elements into two separate stacks:
-                        stack
+                        _stack
                             • Stores the elements in the order in which they were pushed into the queue.
                             • Front of queue = Bottom of stack; Back of queue = Top of stack
-                        revStack
-                            • Stores the elements of _stack, but in reverse.
-                            • Front of queue = Top of stack; Back of queue = bottom of stack
-                    In this solution, we use two integer vectors as stacks, so push_back(), pop_back(), size(), and empty() are the only
-                    std::vector functions that can be utilized. 
+                        _revStack
+                            • Stores the elements of _stack, but in reverse; used to pop the element at the front of the queue and return
+                              it.
+                            • Front of queue = Top of stack; Back of queue = Bottom of stack
+                    In this approach, we recreate _revStack whenever a new element is pushed into the back of the queue, and we recreate 
+                    _stack whenever an element is popped from the front of the queue element is popped the queue. Since we use two integer 
+                    vectors as stacks, push_back(), pop_back(), size(), and empty() are the only std::vector functions that can be utilized.
 
-Resources:          
+Method Analysis:    push()
+                        • Time complexity:      O(N); N = number of elements in the queue
+                        • Space complexity:     O(N); N = number of elements in the queue
+                    pop()
+                        • Time complexity:      O(N); N = number of elements in the queue
+                        • Space complexity:     O(N); N = number of elements in the queue
+                    peek()
+                        • Time complexity:      O(1)
+                        • Space complexity:     O(1)
+                    empty()
+                        • Time complexity:      O(1)
+                        • Space complexity:     O(1)
+
+Resources:          https://leetcode.com/problems/implement-queue-using-stacks/solutions/
 */
+
 
 #include <iostream>
 #include <vector>
@@ -51,7 +67,7 @@ public:
     // Pop the front element from the queue by popping the top of _revStack and storing the updated _revStack into _stack in reverse.
     int pop() 
     {
-        int x = _revStack.back();
+        int x = peek();
         _revStack.pop_back();
         _stack.clear();
 
