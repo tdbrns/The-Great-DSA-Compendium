@@ -34,7 +34,7 @@ Method Analysis:    push()
                     peek()
                         • Time complexity:      O(N); N = number of elements in the queue
                                                       NOTE: worst-case occurs when inStack has N elements and outStack is empty
-                        • Space complexity:     O(N); N = number of elements in the 
+                        • Space complexity:     O(N); N = number of elements in the queue
                     empty()
                         • Time complexity:      O(1)
                         • Space complexity:     O(1)
