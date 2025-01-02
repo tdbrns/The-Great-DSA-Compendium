@@ -19,6 +19,7 @@ Auxiliary space:    O(1)
 Resources:          https://leetcode.com/problems/valid-palindrome/solutions/
 */
 
+
 #include <iostream>
 #include <string>
 using std::cout;
@@ -66,14 +67,17 @@ bool isPalindrome(string s)
 
 int main()
 {
+    // Test case 1.
     string str = "A man, a plan, a canal: Panama";
     (isPalindrome(str)) ? printf("The 1st string is a palindrome.") : printf("The 1st string is not a palindrome.");
     cout << endl;
 
+    // Test case 2.
     str = "race a car";
     (isPalindrome(str)) ? printf("The 2nd string is a palindrome.") : printf("The 2nd string is not a palindrome.");
     cout << endl;
 
+    // Test case 3.
     str = "";
     (isPalindrome(str)) ? printf("The 3rd string is a palindrome.") : printf("The 3rd string is not a palindrome.");
     

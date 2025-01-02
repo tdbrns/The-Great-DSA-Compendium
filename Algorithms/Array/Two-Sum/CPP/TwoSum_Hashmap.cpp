@@ -13,10 +13,10 @@ Time complexity:    O(N)
                         N = number of integers in the array
 
 Space complexity:   O(N)
-                        N = number of integers in the array and the hash map
+                        N = number of elements in the array and the hash map
 
 Auxiliary space:    O(N)
-                        N = number of integers in the hash map
+                        N = number of elements in the hash map
 
 Resources:          https://leetcode.com/problems/two-sum/solutions/
 */
