@@ -20,6 +20,7 @@ Auxiliary space:    O(1)
 Resources:          https://www.geeksforgeeks.org/binary-search/
 */
 
+
 #include <iostream>
 using namespace std;
 

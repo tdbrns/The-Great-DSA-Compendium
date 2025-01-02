@@ -2,7 +2,7 @@
 Algorithm:          Maximum Sum of Distinct Subarrays with Length K using Sliding Window (LeetCode Problem #2461)
 
 Task:               You are given an integer array "nums" and an integer "k". Find the maximum subarray of all the subarrays of nums
-                    the meet the following conditions:
+                    that meet the following conditions:
                         • The length of the subarray is k
                         • All the elements of the subarray are distinct
                     Return the maximum subarray sum of all the subarrays that meet the conditions. If no subarray meets the conditions,
