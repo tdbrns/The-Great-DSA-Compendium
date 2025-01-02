@@ -19,7 +19,8 @@ Space complexity:   O(N)
 Auxiliary space:    O(N)
                         N - number of elements in the hashmap
 
-Resources:          https://leetcode.com/problems/longest-palindrome/
+Resources:          https://leetcode.com/problems/longest-palindrome/solutions/
+                    https://www.geeksforgeeks.org/longest-palindromic-substring/
 */
 
 
