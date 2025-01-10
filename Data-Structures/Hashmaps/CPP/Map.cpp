@@ -21,12 +21,28 @@ using std::pair;
 using std::string;
 using std::stringstream;
 
+template <class K, class V>
+class OrderedMap
+{
+private:
+    map<K, V> _mp;
+
+public:
+    OrderedMap() {
+        initializeMap();
+    }
+
+    void initializeMap(T data)
+    {
+        
+    }
+};
+
 // Insert char-int key-value pairs into an unordered hash map.
 void initializeMap(map<char, int>& mp, string str)
 {
-    // Store the characters of str as key-value pairs in mp.
     // Each key is a character in str; each value is the index of the character in str.
-    for (int i = 0; i < str.length(); i++)
+    for (int i = 0; i < str.size(); i++)
         mp[str[i]] = i;
     cout << "Created hash map with " << mp.size() << " elements." << endl;
 }

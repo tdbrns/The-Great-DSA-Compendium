@@ -22,11 +22,16 @@ Resources:          https://www.youtube.com/watch?v=Y0lT9Fck7qI
                     https://www.geeksforgeeks.org/count-ways-reach-nth-stair/
 */
 
+
 #include <iostream>
 using std::cout;
+using std::endl;
 
-int countSteps(int n)
-{
+int climbStairs(int n) {
+    // If n = 0, return 0.
+    if (n <= 0)
+        return 0;
+
     int oneStep = 1;            // Variable for F(x-1).
     int twoStep = 1;            // Variable for F(x-2).
 
@@ -35,16 +40,17 @@ int countSteps(int n)
     {
 
         int temp = oneStep;
-        oneStep = oneStep + twoStep;        // Set oneStep as F(x). F(x) = F(x-1) + F(x-2).
-        twoStep = temp;                     // Set twoStep as F(x-1).
+        oneStep = oneStep + twoStep;        // Change oneStep from F(x-1) to F(x).
+        twoStep = temp;                     // Change twoStep from F(x-2) to F(x-1).
 
-        // In the next iteration, the current F(x) (oneStep) will be F(x-1) and the current F(x-1) (twoStep) will be F(x-2).
+        // In the next iteration, oneStep will change to F(x-1) and twoStep will change to F(x-2).
     }
 
-    // After the final for-loop iteration, oneStep will hold the value of F(n) (the number of distinct ways to climb the staircase).
-    return twoStep;
+    // oneStep will be F(n) - the number of distinct ways to climb the staircase.
+    return oneStep;
 }
-/* countSteps() when n = 5; 
+
+/* climbStairs() when n = 5; 
     init  oneStep = 1; twoStep = 1      x = 1
     1.    oneStep = 2; twoStep = 1      x = 2
     2.    oneStep = 3; twoStep = 2      x = 3
@@ -53,10 +59,18 @@ int countSteps(int n)
     return 8
 */
 
-int main()
-{
-    int n = 5;
-    cout << "Number of ways: " << countSteps(n);
+int main() {
+    // Test case 1.
+    int n = 0;
+    cout << "Number of ways to climb " << n << "-step staircase: " << climbStairs(n) << endl;
+
+    // Test case 2.
+    n = 2;
+    cout << "Number of ways to climb " << n << "-step staircase: " << climbStairs(n) << endl;
+
+    // Test case 2.
+    n = 5;
+    cout << "Number of ways to climb " << n << "-step staircase: " << climbStairs(n) << endl;
 
     return 0;
 }
