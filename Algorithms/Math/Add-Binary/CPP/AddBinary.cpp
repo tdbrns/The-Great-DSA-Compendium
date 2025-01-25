@@ -10,9 +10,9 @@ Solution:           Iteratively perform binary addition with a[i], b[j], and the
                     over from the previous binary addition operation. If the resulting sum is greater than 1, then the sum is set to 0
                     and a value of 1 is carried over to the binary addition operation of the next iteration. Then the final sum is 
                     inserted to the front of the result string. This process is repeated until each character in a and b has been 
-                    iterated through. 
-                    If the carried value is still 1 after the end of the iteration, insert "1" at the front result string.
-                    Finally, return the result 
+                    processed. 
+                    If the carried value is still 1 after all the characters in a and b have been processed, insert "1" at the front 
+                    result string. Finally, return the result.
 
 Time complexity:    O(max(M, N))
                         M = length of string a
@@ -41,12 +41,13 @@ string addBinary(string a, string b)
     int carry = 0;                  // The carried value.
     string result = "";             // Result string.
 
-    // Iteratively perform binary addition until all values characters have added.
+    // Iteratively perform binary addition until all characters have been processed.
     while (i >= 0 || j >= 0)
     {
         int sum = carry;    // Sum of the current set of binary digits.
 
-        // Get the ASCII the characters a[i] and b[j], subtract the ASCII value of '0' (48) from each of them, and the the two differences together.
+        // Get the ASCII value of a[i] and b[j], subtract the ASCII value of '0' (48) from each of them, and add the two differences
+        // together.
         if (i >= 0)
             sum += a[i--] - '0';
         if (j >= 0)
@@ -56,7 +57,7 @@ string addBinary(string a, string b)
         carry = sum > 1 ? 1 : 0;
         
         // Insert the result of sum % 2 at the front of the result string.
-        /* Example
+        /* Example:
             when sum = 0, 0 % 2 = 0
             when sum = 1, 1 % 2 = 1
             when sum = 2, 2 % 2 = 0
