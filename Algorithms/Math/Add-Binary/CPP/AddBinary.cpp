@@ -34,16 +34,14 @@ using std::string;
 using std::cout;
 using std::endl;
 
-string addBinary(string a, string b) 
-{
+string addBinary(string a, string b)  {
     int i = a.length() - 1;         // Index of string a.
     int j = b.length() - 1;         // Index of string b.
     int carry = 0;                  // The carried value.
     string result = "";             // Result string.
 
     // Iteratively perform binary addition until all characters have been processed.
-    while (i >= 0 || j >= 0)
-    {
+    while (i >= 0 || j >= 0) {
         int sum = carry;    // Sum of the current set of binary digits.
 
         // Get the ASCII value of a[i] and b[j], subtract the ASCII value of '0' (48) from each of them, and add the two differences
@@ -73,8 +71,7 @@ string addBinary(string a, string b)
     return result;
 }
 
-int main()
-{
+int main() {
     // Test case 1.
     string a = "11";
     string b = "1";

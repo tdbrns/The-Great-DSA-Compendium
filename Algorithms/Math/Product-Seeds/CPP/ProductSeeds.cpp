@@ -33,20 +33,16 @@ using std::vector;
 using std::sqrt;
 
 // Find all factors of a number and return them in a vector.
-vector<int> getFactors(int num)
-{
+vector<int> getFactors(int num) {
     vector<int> factors;
 
-    for (int i = 1; i < sqrt(num); i++)
-    {
+    for (int i = 1; i < sqrt(num); i++) {
         // If num is divisible by i, add it to factors.
-        if (num % i == 0)
-        {
+        if (num % i == 0) {
             int quotient = num / i;
             if (quotient == i)
                 factors.push_back(i);
-            else
-            {
+            else {
                 factors.push_back(i);
                 factors.push_back(quotient);
             }
@@ -57,11 +53,9 @@ vector<int> getFactors(int num)
 }
 
 // Calculate the product of each digit in a number and return the product.
-int getDigitProduct(int num)
-{
+int getDigitProduct(int num) {
     int product = 1;
-    while (num > 0)
-    {
+    while (num > 0) {
         product *= num % 10;    // Multiply the digit currently in the one place of num by product.
         num /= 10;              // Divide num by 10 to move all digits down by 1 place.
     }
@@ -74,21 +68,18 @@ void printProductSeeds(int num)
     // If the integer only has 1 digit, it has no product seeds.
     if (num < 10)
         cout << "No product seeds found for " << num;
-    else
-    {
+    else {
         vector<int> seeds;
         vector<int> factors = getFactors(num);      // Vector containing all the factors of num.
 
         // Check each factor of num to see if it is a product seed.
-        for (int i = 0; i < factors.size(); i++)
-        { 
+        for (int i = 0; i < factors.size(); i++) { 
             if (factors[i] * getDigitProduct(factors[i]) == num)
                 seeds.push_back(factors[i]);
         }
 
         // If the integer has product seeds, print each of them.
-        if (seeds.size() != 0)
-        {
+        if (seeds.size() != 0) {
             cout << "Product seeds for " << num << ": ";
             for (int i = 0; i < seeds.size(); i++)
                 cout << seeds[i] << " ";
@@ -98,8 +89,7 @@ void printProductSeeds(int num)
     }
 }
 
-int main()
-{
+int main() {
     // Test case 1.
     int num = 138;
     printProductSeeds(num);

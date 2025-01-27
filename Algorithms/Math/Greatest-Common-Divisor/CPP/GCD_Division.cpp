@@ -38,8 +38,7 @@ using std::vector;
 using std::max_element;
 using std::min_element;
 
-int GCD(int a, int b)
-{
+int GCD(int a, int b) {
     // Base case; if b equals 0, then the GCD is a.
     if (b == 0)
         return a;
@@ -49,16 +48,14 @@ int GCD(int a, int b)
 }
 
 // Wrapper for GCD(); passes the the largest and smallest integers in nums to GCD as arguments.
-int findGCD(vector<int>& nums)
-{
+int findGCD(vector<int>& nums) {
     // NOTE: std::min_element and std::max_element both give the time complexity O(N).
     int a = *max_element(nums.begin(), nums.end());
     int b = *min_element(nums.begin(), nums.end());
     return GCD(a, b);
 }
 
-int main()
-{
+int main() {
     // Test case 1.
     vector<int> nums = {4, 5, 6, 9, 10};
     cout << "Greatest Common Divisor: " << findGCD(nums);

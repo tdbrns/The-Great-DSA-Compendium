@@ -25,28 +25,23 @@ using std::endl;
 using std::vector;
 using std::sqrt;
 
-void printFactors(int num)
-{
+void printFactors(int num) {
     cout << "Factors of " << num << ": ";
 
     // If num is 0, print 0.
-    if (num == 0)
-    {
+    if (num == 0) {
         cout << "0";
         return;
     }
     // If num is 1, print 1.
-    else if (num == 1)
-    {
+    else if (num == 1) {
         cout << "1";
         return;
     }
 
     // Find all the factor pairs of num.
-    for (int i = 1; i < sqrt(num) + 1; i++)
-    {
-        if (num % i == 0)
-        {
+    for (int i = 1; i < sqrt(num) + 1; i++) {
+        if (num % i == 0) {
             int quotient = num / i;
             
             // If the numbers in the factor pair are the same, only print one of them.
@@ -59,8 +54,7 @@ void printFactors(int num)
     }
 }
 
-int main()
-{
+int main() {
     // Test case 1.
     int num = 0;
     printFactors(num);

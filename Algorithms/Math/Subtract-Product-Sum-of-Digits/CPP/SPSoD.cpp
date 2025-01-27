@@ -22,13 +22,11 @@ Resources:          https://leetcode.com/problems/subtract-the-product-and-sum-o
 using std::cout;
 using std::endl;
 
-int subtractProductAndSum(int num)
-{
+int subtractProductAndSum(int num) {
     int sum = 0;
     int product = 1;
 
-    while (num > 0)
-    {
+    while (num > 0) {
         sum += num % 10;            // Add the digit currently in the ones place of num to sum.
         product *= num % 10;        // Multiply the digit currently in the ones place of num by product.
         num /= 10;                  // Divide num by 10 to move all digits down by one place. Quotient is rounded down to the nearest 
@@ -38,8 +36,7 @@ int subtractProductAndSum(int num)
     return product - sum;
 }
 
-int main()
-{
+int main() {
     // Test case 1.
     int num = 234;
     cout << "Difference between the digit product and digit sum of " << num << " is " << subtractProductAndSum(num) << endl;
