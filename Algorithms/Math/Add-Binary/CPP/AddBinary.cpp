@@ -58,10 +58,10 @@ string addBinary(string a, string b)
         
         // Insert the result of sum % 2 at the front of the result string.
         /* Example:
-            when sum = 0, 0 % 2 = 0
-            when sum = 1, 1 % 2 = 1
-            when sum = 2, 2 % 2 = 0
-            when sum = 3, 3 % 2 = 1
+            if sum = 0, 0 % 2 = 0
+            if sum = 1, 1 % 2 = 1
+            if sum = 2, 2 % 2 = 0
+            if sum = 3, 3 % 2 = 1
         */
         result.insert(0, std::to_string(sum % 2));
     }

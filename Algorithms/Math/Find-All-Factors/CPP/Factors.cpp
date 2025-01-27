@@ -43,30 +43,35 @@ void printFactors(int num)
     }
 
     // Find all the factor pairs of num.
-    for (int i = 1; i < sqrt(num); i++)
+    for (int i = 1; i < sqrt(num) + 1; i++)
     {
         if (num % i == 0)
         {
+            int quotient = num / i;
+            
             // If the numbers in the factor pair are the same, only print one of them.
-            if (num == i)
+            if (quotient == i)
                 cout << i << " ";
             // If the numbers in the factor pair are different, print both of them
             else
-                cout << i << " " << num / i << " ";
+                cout << i << " " << quotient << " ";
         }
     }
 }
 
 int main()
 {
+    // Test case 1.
     int num = 0;
     printFactors(num);
     cout << endl;
 
+    // Test case 2.
     num = 144;
     printFactors(num);
     cout << endl;
 
+    // Test case 3.
     num = 71;
     printFactors(num);
     cout << endl;
