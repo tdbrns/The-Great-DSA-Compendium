@@ -1,4 +1,4 @@
-/*
+'''
 Algorithm:          Majority Element (LeetCode Problem #169)
 
 Task:               Given an array nums of size n, return the majority element. The majority element is the element that appears more 
@@ -21,43 +21,30 @@ Space complexity:   O(N)
 Auxiliary space:    O(1)
 
 Resources:          https://leetcode.com/problems/majority-element/solutions/
-*/
+'''
 
 
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-using std::vector;
-using std::unordered_map;
-using std::cout;
-using std::endl;
+def majority_element(nums):
+    majority_elem = 0               # Current majority element.
+    majority_score = 0              # Score determining if current element is the majority element.
 
-int majorityElement(vector<int>& nums) {
-    int majorityElem = 0;       // Current majority element.
-    int majorityScore = 0;      // Score that determines if the current element is the majority element.
+    # Iterate through nums while recording the majority score as described.
+    for i in range(0, len(nums)):
+        if majority_score == 0:
+            majority_elem = nums[i]
+        
+        if majority_elem == nums[i]:
+            majority_score += 1
+        else:
+            majority_score -= 1
 
-        // Iterate through nums while recording the majority score as described.
-        for (int i = 0; i < nums.size(); i++) {
-            if (majorityScore == 0)
-                majorityElem = nums[i];
-            
-            if (majorityElem == nums[i])
-                majorityScore++;
-            else
-                majorityScore--;
-        }
+    return majority_elem
 
-        return majorityElem;
-}
+if __name__ == "__main__":
+    # Test case 1.
+    nums = [3, 2, 3]
+    print(majority_element(nums))
 
-int main() {
-    // Test case 1.
-    vector<int> nums = {3, 2, 3};
-    cout << majorityElement(nums) << endl;
-
-    // Test case 2.
-    nums = {2, 2, 1, 1, 1, 2, 2};
-    cout << majorityElement(nums) << endl;
-
-    return 0;
-}
+    # Test case 2.
+    nums = [2, 2, 1, 1, 1, 2, 2]
+    print(majority_element(nums))

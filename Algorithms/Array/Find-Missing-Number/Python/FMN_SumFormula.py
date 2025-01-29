@@ -1,4 +1,4 @@
-/*
+'''
 Algorithm:          Find Missing Number using Gauss Sum Formula (LeetCode Problem #268)
 
 Task:               Given an array of containing n unique integers in the range [0, n], find the only number in the range that is 
@@ -20,37 +20,26 @@ Auxiliary space:    O(1)
 
 Resources:          https://leetcode.com/problems/missing-number/solutions/
                     https://dev.to/alisabaj/the-gauss-sum-and-solving-for-the-missing-number-996#:~:text=In%20other%20words%2C%20if%20you,lot%20you%20can%20do%20with%20.
-*/
+'''
 
+def missing_number(nums):
+    gauss_sum = (0 + len(nums)) * (len(nums) + 1) // 2
 
-#include <iostream>
-#include <vector>
-using std::cout;
-using std::endl;
-using std::vector;
-
-int missingNumber(vector<int>& nums) {
-    int gaussSum = (0 + nums.size()) * (nums.size() + 1) / 2;
-
-    // Iteratively subtract each integer in nums from the Gaus sum to find the difference.
-    for (int i = 0; i < nums.size(); i++)
-        gaussSum -= nums[i];
+    # Iteratively subtract each integer in nums from the Gauss sum to find the difference.
+    for i in range(0, len(nums)):
+        gauss_sum -= nums[i]
     
-    return gaussSum;
-}
+    return gauss_sum
 
-int main() {
-    // Test case 1.
-    vector<int> nums = {3, 0, 1};
-    cout << missingNumber(nums) << endl;
+if __name__ == "__main__":
+    # Test case 1.
+    nums = [3, 0, 1]
+    print(missing_number(nums))
 
-    // Test case 2.
-    nums = {0, 1};
-    cout << missingNumber(nums) << endl;
+    # Test case 2.
+    nums = [0, 1]
+    print(missing_number(nums))
 
-    // Test case 3.
-    nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
-    cout << missingNumber(nums) << endl;
-
-    return 0;
-}
+    # Test case 3.
+    nums = [9, 6, 4, 2, 3, 5, 7, 0, 1]
+    print(missing_number(nums))

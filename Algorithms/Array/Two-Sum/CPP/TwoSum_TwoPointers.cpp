@@ -25,6 +25,7 @@ Auxiliary space:    O(N)
 Resources:          https://leetcode.com/problems/two-sum/solutions/
 */
 
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -33,10 +34,9 @@ using std::endl;
 using std::vector;
 using std::pair;
 
-vector<int> twoSum(vector<int>& nums, int target)
-{
-    // Store the integers in nums as keys and their corresponding indices as values in numPairs.
-    vector<pair<int, int>> numPairs(nums.size());
+vector<int> twoSum(vector<int>& nums, int target) {
+    vector<pair<int, int>> numPairs(nums.size());       // Store elements in nums as keys and their indices as values in numPairs.
+    
     for (int i = 0; i < nums.size(); i++)
         numPairs[i] = std::make_pair(nums[i], i);
 
@@ -46,8 +46,7 @@ vector<int> twoSum(vector<int>& nums, int target)
     int left_i = 0;                 // Index of the smaller integer in nums. Initialized as the first index.
     int right_i = nums.size() - 1;  // Index of the larger integer in nums. Initialized as the last index.
 
-    while (left_i < right_i)
-    {
+    while (left_i < right_i) {
         // Calculate the sum of the keys at left_i and right_i.
         int sum = numPairs[left_i].first + numPairs[right_i].first;
 
@@ -66,8 +65,7 @@ vector<int> twoSum(vector<int>& nums, int target)
     return {-1, -1};
 }
 
-int main()
-{
+int main() {
     // Test case 1
     vector<int> numVect = {2, 7, 11, 15};
     int target = 9;

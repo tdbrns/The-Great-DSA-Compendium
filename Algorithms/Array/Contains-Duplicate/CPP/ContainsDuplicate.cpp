@@ -1,5 +1,5 @@
 /*
-Algorithm:          COntains Duplicate using Hashmap (LeetCode Problem #217)
+Algorithm:          Contains Duplicate using Hashmap (LeetCode Problem #217)
 
 Task:               Given an integers array nums, return true if any value appears at least twice, and return false if every element is
                     distinct.
@@ -29,13 +29,11 @@ using std::endl;
 using std::vector;
 using std::unordered_map;
 
-bool containsDuplicate(vector<int>& nums) 
-{
-    unordered_map<int, int> intHz;          // Stores elements in nums as keys and their frequency as values.
+bool containsDuplicate(vector<int>& nums) {
+    unordered_map<int, int> intHz;          // Hashmap storing elements in nums as keys and their frequency as values.
 
     // Iteratively store the frequency of each element in nums.
-    for (int i = 0; i < nums.size(); i++)
-    {
+    for (int i = 0; i < nums.size(); i++) {
         // If the current integer's frequency is equal to 0, add 1 to its frequency; otherwise, return true.
         if (intHz[nums[i]] == 0)
             intHz[nums[i]]++;
@@ -47,8 +45,7 @@ bool containsDuplicate(vector<int>& nums)
     return false;
 }
 
-int main()
-{
+int main() {
     // Test case 1.
     vector<int> nums = {1, 2, 3, 1};
     containsDuplicate(nums) ? cout << "True\n" : cout << "False\n";

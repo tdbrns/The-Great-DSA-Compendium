@@ -29,12 +29,10 @@ using std::endl;
 using std::vector;
 using std::unordered_map;
 
-vector<int> twoSum(vector<int>& nums, int target) 
-{
+vector<int> twoSum(vector<int>& nums, int target) {
     unordered_map<int, int> uMp;            // Stores integers in nums as keys and integers' index in nums as values.
     
-    for (int i = 0; i < nums.size(); i++)
-    {
+    for (int i = 0; i < nums.size(); i++) {
         int compliment = target - nums[i];   // Integer that, when added to nums[i], would equal target.
         
         // If the compliment exists in the map, return the index of compliment and nums[i].
@@ -49,8 +47,7 @@ vector<int> twoSum(vector<int>& nums, int target)
     return {-1, -1};
 }
 
-int main() 
-{
+int main() {
     // Test case 1
     vector<int> numVect = {2, 7, 11, 15};
     int target = 9;

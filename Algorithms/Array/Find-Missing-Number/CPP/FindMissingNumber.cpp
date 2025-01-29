@@ -4,7 +4,8 @@ Algorithm:          Find Missing Number (LeetCode Problem #268)
 Task:               Given an array of containing n unique integers in the range [0, n], find the only number in the range that is 
                     missing from the array.
 
-Solution:           Subtract the sum of all the integers in the array from the sum of all the integers in range [0, N].
+Solution:           Subtract the sum of all the integers in the array from the sum of all the integers in range [0, N] and return the
+                    difference, which will be the missing number.
 
 Time complexity:    O(N)
                         N = size of the integer array
@@ -24,23 +25,20 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-int missingNumber(vector<int>& nums)
-{
+int missingNumber(vector<int>& nums) {
     int rangeSum = 0;       // The sum of all integers in range [0, n].
     int numsSum = 0;        // The sum of all integers in nums.
 
-    for (int i = 0; i <= nums.size(); i++)
+    for (int i = 0; i <= nums.size(); i++) {
+        if (i < nums.size())
+            numsSum += nums[i];
         rangeSum += i;
+    }
     
-    for (int i = 0; i < nums.size(); i++)
-        numsSum += nums[i];
-    
-    // Subtract numsSum from rangeSum; the difference should be the number in range [0, n] that is missing from the nums. 
     return rangeSum - numsSum;
 }
 
-int main()
-{
+int main() {
     // Test case 1.
     vector<int> nums = {3, 0, 1};
     cout << missingNumber(nums) << endl;

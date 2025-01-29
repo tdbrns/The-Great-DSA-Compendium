@@ -26,9 +26,9 @@ Resources:          https://leetcode.com/problems/two-sum/solutions/
                     https://www.datacamp.com/tutorial/sort-a-dictionary-by-value-python
 '''
 
+
 def twoSum(nums: list[int], target: int) -> list[int]:
-    # Store the integers in nums as keys and their corresponding indices as values in num_pairs.
-    num_pairs = {}
+    num_pairs: dict = {}                  # Store elements in nums as keys and their indices as values in num_pairs.
     for i in range(len(nums)):
         num_pairs[nums[i]] = i
 

@@ -1,5 +1,5 @@
 /*
-Algorithm:          Majority Element using Hashmap (LeetCode Problem #409)
+Algorithm:          Majority Element using Hashmap (LeetCode Problem #169)
 
 Task:               Given an array nums of size n, return the majority element. The majority element is the element that appears more 
                     than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
@@ -28,14 +28,13 @@ using std::unordered_map;
 using std::cout;
 using std::endl;
 
-int majorityElement(vector<int>& nums) 
-{
-    // Use a hash map to record the frequency of each integer in the array. Return the integer with the highest frequency value.
-    unordered_map<int, int> intHz;
-    int majorityElem = 0;
+int majorityElement(vector<int>& nums) {
+    unordered_map<int, int> intHz;          // Stores elements in nums as keys and their frequency as values.
+    int majorityElem = 0;                   // Current majority element.
 
-    for (int i = 0; i < nums.size(); i++)
-    {
+    // Iterate through nums and record the frequency of each element. Update the majority element with nums[i] if nums[i] occurs more 
+    // frequently than the majority element.
+    for (int i = 0; i < nums.size(); i++) {
         intHz[nums[i]]++;
 
         if (intHz[nums[i]] > intHz[majorityElem])
@@ -45,10 +44,9 @@ int majorityElement(vector<int>& nums)
     return majorityElem;
 }
 
-int main()
-{
+int main() {
     // Test case 1.
-    vector<int> nums = {3, 2, 2};
+    vector<int> nums = {3, 2, 3};
     cout << majorityElement(nums) << endl;
 
     // Test case 2.

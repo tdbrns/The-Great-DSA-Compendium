@@ -21,7 +21,8 @@ Auxiliary space:    O(N)
 Resources:          https://leetcode.com/problems/two-sum/solutions/
 '''
 
-def twoSum(nums: list[int], target: int) -> list[int]:
+
+def twoSum(nums: list[int], target: int) -> list[int] | None:
     mp = {}         # Dictionary that stores integers in nums as keys and integers' index in nums as values.
 
     for i in range(len(nums)):
