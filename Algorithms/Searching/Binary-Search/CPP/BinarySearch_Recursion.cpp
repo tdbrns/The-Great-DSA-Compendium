@@ -5,11 +5,11 @@ Task:               Use a divide-and-conquer algorithm to find a specific intege
                     descending order.
 
 Solution:           Search for the target value in array using the Binary Search algorithm, which identifies the centermost element of 
-                    the array and compares the centermost element value to the target value to determine whether the target is in the
-                    left or the right side of the centermost element in the array. If the target value is on one side of the centermost
-                    element, the other side of the centermost element will be omitted from the search, and the side in which the target
-                    resides will be split by its own centermost value and follow the same process. This process of of splitting subarrays
-                    will continue until the centermost element value is equal to the target value or the subarray can no longer be split.
+                    the array and compares its value to the target value to determine whether the target is in the left or the right 
+                    side of the array. If the target value is on one side of the centermost element, the other side of the centermost 
+                    element will be omitted from the search, and the side in which the target resides will be split by its own 
+                    centermost value and follow the same process. This process of of splitting subarrays will continue until the 
+                    centermost element value is equal to the target value or the subarray can no longer be split.
                     
 Time complexity:    O(log(N)); N = number of integers in the array
 
@@ -22,70 +22,68 @@ Resources:          https://www.geeksforgeeks.org/binary-search/
 
 
 #include <iostream>
-using namespace std;
+#include <vector>
+using std::cout;
+using std::vector;
 
-int recursiveBinarySearchAscend(int arr[], int leftIndex, int rightIndex, int target)
-{
-    // NOTE: only the array elements between rightIndex and leftIndex are evaluated in each iteration. Once leftIndex is equal to 
-    // rightIndex, the subarray cannot be divide any further.
+bool recursiveBinarySearchAscend(vector<int>& nums, int left_i, int right_i, int target) {
+    if (left_i <= right_i) {
+        int mid_i = left_i + (right_i - left_i) / 2;  // Index of the centermost element of the current array.
 
-    if (leftIndex <= rightIndex)
-    {
-        int midIndex = leftIndex + (rightIndex - leftIndex) / 2;  // Index of the centermost element of the current array.
-
-        // NOTE: if midIndex is a decimal number, it is rounded down to the nearest whole number.
-
-        // Base case; if the centermost value is the target value, return midIndex.
-        if (arr[midIndex] == target)
-            return midIndex;
-
-        // If the centermost value is greater than target, make midIndex-1 the new rightIndex in the next recursive pass.
-        if (arr[midIndex] > target)
-            return recursiveBinarySearchAscend(arr, leftIndex, midIndex - 1, target);
-
-        // Otherwise, make the midIndex+1 the new leftIndex in the next recursive pass.
-        return recursiveBinarySearchAscend(arr, midIndex + 1, rightIndex, target);
+        // Base case; if nums[mid_i] is equal to the target, return True.
+        // If nums[mid_i] is greater than target, let right_i = mid_i-1 to omit the right subarray and recur.
+        // If nums[mid_i] is less than target, let left_i = mid_i+1 to omit the left subarray and recur.
+        if (nums[mid_i] == target)
+            return true;
+        if (nums[mid_i] > target)
+            return recursiveBinarySearchAscend(nums, left_i, mid_i - 1, target);
+        return recursiveBinarySearchAscend(nums, mid_i + 1, right_i, target);
     }
 
-    // If the value is not found, return -1.
-    return -1;
+    // If the value is not found, return false.
+    return false;
 }
 
-int recursiveBinarySearchDescend(int arr[], int leftIndex, int rightIndex, int target)
-{
-    if (leftIndex <= rightIndex)
-    {
-        int midIndex = leftIndex + (rightIndex - leftIndex) / 2;    // Index of the centermost element of the current array.
+bool recursiveBinarySearchDescend(vector<int>& nums, int left_i, int right_i, int target) {
+    if (left_i <= right_i) {
+        int mid_i = left_i + (right_i - left_i) / 2;    // Index of the centermost element of the current array.
 
-        // Base case; if the centermost value if the target value, return midIndex.
-        if (arr[midIndex] == target)
-            return midIndex;
-
-        // If the centermost value is greater than target, make midIndex+1 the new leftIndex in the next recursive pass.
-        if (arr[midIndex] > target)
-            return recursiveBinarySearchDescend(arr, midIndex + 1, rightIndex, target);
-        
-        // Otherwise, make the midIndex-1 the new rightIndex in the next recursive pass.
-        return recursiveBinarySearchDescend(arr, leftIndex, midIndex - 1, target);
+        // Base case; if nums[mid_i] is equal to the target, return True.
+        // If nums[mid_i] is greater than target, let left_i = mid_i+1 to omit the left subarray and recur.
+        // If nums[mid_i] is less than target, let right_i = mid_i-1 to omit the right subarray and recur.
+        if (nums[mid_i] == target)
+            return true;
+        if (nums[mid_i] > target)
+            return recursiveBinarySearchAscend(nums, mid_i + 1, right_i, target);
+        return recursiveBinarySearchDescend(nums, left_i, mid_i - 1, target);
     }
 
-    // If the value if not found, return -1.
-    return -1;
+    // If the value if not found, return false.
+    return false;
 }
 
-int main()
-{
-    int nums1[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int target = 12;
-    int arrSize = sizeof(nums1) / sizeof(nums1[0]);
-    int result = recursiveBinarySearchAscend(nums1, 0, arrSize-1, target);
-    (result == -1) ? cout << "First target not found.\n" : cout << "First target found!\n";
-        
-    int nums2[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-    target = 4;
-    arrSize = sizeof(nums2) / sizeof(nums2[0]);
-    result = recursiveBinarySearchDescend(nums2, 0, arrSize-1, target);
-    (result == -1) ? cout << "Second target not found.\n" : cout << "Second target found!\n";
+// Determine whether to perform ascending or descending binary search.
+bool recursiveBinarySearch(vector<int>& nums, int target) {
+    int left_i = 0;                                         // Index of first element in nums.
+    int right_i = nums.size() - 1;                          // Index of last element in nums.
+
+    if (nums[0] <= nums[nums.size() - 1])
+        return recursiveBinarySearchAscend(nums, left_i, right_i, target);
+    return recursiveBinarySearchDescend(nums, left_i, right_i, target);
+}
+
+int main() {
+    // Test case 1.
+    vector<int> nums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int target = 1;
+    bool foundTarget = recursiveBinarySearch(nums, target);
+    (foundTarget) ? cout << target << " is in the array\n" : cout << target << " is not in the array\n";
+
+    // Test case 2.
+    nums = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};    
+    target = 8;
+    foundTarget = recursiveBinarySearch(nums, target);
+    (foundTarget) ? cout << target << " is in the array\n" : cout << target << " is not in the array\n";
 
     return 0;
 }
