@@ -1,4 +1,4 @@
-/*
+'''
 Algorithm:          Recursive Depth-First Search (DFS) for a Graph
 
 Task:               Print out the value of each vertex in an undirected graph that is either connnected or disconnected.
@@ -28,91 +28,76 @@ Auxiliary space:    O(V)
 
 Resources:          https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
                     https://www.youtube.com/watch?v=pcKY4hjDrxk
-*/
+'''
 
 
-#include <iostream>
-#include <vector>
-using std::cout;
-using std::endl;
-using std::vector;
+def dfs_recursive(adj_list, visited, current):
+    # Set the current vertex to true (visited) and print it.
+    visited[current] = True
+    print(current, end=' ')
 
-void dfsRecursive(vector<vector<int>> adjList, vector<bool>& visited, int current) {
-    // Set the current vetex to true (visited) and print it.
-    visited[current] = true;
-    cout << current << " ";
+    # If an adjacent vertex of the current vertex is unvisited, push it onto the function call stack and check its adjacent vertices.
+    for vertex in adj_list[current]:
+        if visited[vertex] == False:
+            dfs_recursive(adj_list, visited, vertex)
 
-    // If an adjacent vertex of the current vertex is unvisited, push it onto the function call stack and check its adjacent vertices.
-    for (auto vertex : adjList[current])
-        if (visited[vertex] == false)
-            dfsRecursive(adjList, visited, vertex);
-}
+# Depth-first search of a disconnected graph.
+def dfs_disconnect(adj_list):
+    visited_verts = [False for i in range(len(adj_list))]
+    for vertex in range(len(adj_list)):
+        if visited_verts[vertex] == False:
+            dfs_recursive(adj_list, visited_verts, vertex)
+    print()
+    
+# Depth-first search of a connected graph from a given source vertex.
+def dfs(adj_list, source):
+    # Records visited vertices as true and unvisited vertices as false; all vertices are initialized to false.
+    visited_verts = [False for i in range(len(adj_list))]
+    dfs_recursive(adj_list, visited_verts, source)
+    print()
 
-// Depth-first search of a disconnected graph.
-void dfsDisconnect(vector<vector<int>> adjList) {
-    vector<bool> visitedVerts(adjList.size(), false);
-    for (int vertex = 0; vertex < adjList.size(); vertex++) {
-        if (visitedVerts[vertex] == false)
-            dfsRecursive(adjList, visitedVerts, vertex);
-    }
-    cout << endl;
-}
+# Add edges to the graph by connecting two vertices together.
+def add_edge(adj_list, vertex, connected_vertex):
+    adj_list[vertex].append(connected_vertex)
+    adj_list[connected_vertex].append(vertex)
 
-// Depth-first search of a connected graph from a given source vertex.
-void dfs(vector<vector<int>> adjList, int source) {
-    // Records visited vertices as true and unvisited vertices as false; all vertices are initialized to false.
-    vector<bool> visitedVerts(adjList.size(), false);
-    dfsRecursive(adjList, visitedVerts, source);
-    cout << endl;
-}
-
-// Add edges to the graph by connecting two vertices together.
-void addEdge(vector<vector<int>>& adjList, int vertex, int connectedVertex) {
-    adjList[vertex].push_back(connectedVertex);
-    adjList[connectedVertex].push_back(vertex);
-}
-
-int main() {
-    // Test case 1.
-    /* Create Graph 1 (see Algorithms\\Searching\\Depth-First-Search\\Graph1.png)
+if __name__ == "__main__":
+    # Test case 1.
+    ''' Create Graph 1 (see Algorithms\\Searching\\Depth-First-Search\\Graph1.png)
         Graph 1 Adjacency List:
             vertex_0 -> 1 -> 2
             vertex_1 -> 0 -> 3 -> 4
             vertex_2 -> 0 -> 4
             vertex_3 -> 1
             vertex_4 -> 1 -> 2
-    */
-    int vertexNum = 5;                          // Number of vertices in the graph.
-    int sourceVertex = 0;                       // First vertex to be visited in the search.
-    vector<vector<int>> adjList(vertexNum);     // Stores each vertex in a row and each of their edge-connected vertices in a column.
-    addEdge(adjList, 0, 1);
-    addEdge(adjList, 0, 2);
-    addEdge(adjList, 1, 3);
-    addEdge(adjList, 1, 4);
-    addEdge(adjList, 2, 4);
-    cout << "DFS of Connected Graph from Vertex_0: ";
-    dfs(adjList, sourceVertex);
+    '''
+    vertex_num = 5                                  # Number of vertices in the graph.
+    source_vertex = 0                               # First vertex to be visited in the search.
+    adj_list = [[] for i in range(vertex_num)]      # Stores each vertex in a row and each of their edge-connected vertices in a column.
+    add_edge(adj_list, 0, 1)
+    add_edge(adj_list, 0, 2)
+    add_edge(adj_list, 1, 3)
+    add_edge(adj_list, 1, 4)
+    add_edge(adj_list, 2, 4)
+    print("DFS of Connected Graph from Vertex_0:",end=' ')
+    dfs(adj_list, source_vertex)
 
 
-    // Test case 2.
-    /* Create Graph 2 (see Algorithms\\Searching\\Depth-First-Search\\Graph2.png)
+    # Test case 2.
+    ''' Create Graph 2 (see Algorithms\\Searching\\Depth-First-Search\\Graph2.png)
         Graph 2 Adjacency List:
             vertex_0 -> 1 -> 2
-            vertex_1 -> 0
+            vertex_1 -> 0S
             vertex_2 -> 0
             vertex_3 -> 4 -> 5
             vertex_4 -> 3
             vertex_5 -> 3
-    */
-    vertexNum = 6;
-    adjList.clear();
-    adjList.resize(vertexNum);
-    addEdge(adjList, 0, 1);
-    addEdge(adjList, 0, 2);
-    addEdge(adjList, 3, 4);
-    addEdge(adjList, 3, 5);
-    cout << "DFS of Disconnected Graph: ";
-    dfsDisconnect(adjList);
-
-    return 0;
-}
+    '''
+    vertex_num = 6
+    adj_list = adj_list = [[] for i in range(vertex_num)]
+    add_edge(adj_list, 0, 1)
+    add_edge(adj_list, 0, 2)
+    add_edge(adj_list, 3, 4)
+    add_edge(adj_list, 3, 5)
+    print("DFS of Disconnected Graph:",end=' ')
+    dfs_disconnect(adj_list)
