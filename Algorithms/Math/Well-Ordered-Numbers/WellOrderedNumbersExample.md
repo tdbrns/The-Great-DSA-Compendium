@@ -1,4 +1,14 @@
 # Well-Ordered Numbers Algorithm Example
+## Definition
+A well-ordered number is a number with digits that are in strictly increasing order from left to right. For example, when printing out every well-ordered number with 2 digits, the output should be:  
+    12 13 14 15 16 17 18 19  
+    23 24 25 26 27 28 29  
+    34 35 36 37 38 39  
+    45 46 47 48 49  
+    56 57 58 59  
+    67 68 69  
+    78 79  
+    89
 ## Function and Parameters
     printWellOrderedNumbers(num, x, n)
 * *num (integer)*
@@ -45,4 +55,5 @@ Let *printWellOrderedNumbers()* be *PWON()*.
 31. return to PWON(2, 2, 1)
 32. PWON(24, 4, 0) -> recur #3
 33. print 24
-34. return to PWON(2, 2, 1)...
+34. return to PWON(2, 2, 1)  
+...
