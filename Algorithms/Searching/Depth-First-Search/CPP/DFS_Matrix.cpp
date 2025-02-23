@@ -28,26 +28,27 @@ Resources:          https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-
                     https://www.youtube.com/watch?v=pcKY4hjDrxk
 */
 
+
 #include <iostream>
 #include <vector>
 using std::cout;
 using std::endl;
 using std::vector;
 
-void recurDFS(vector<vector<char>>& matrix, vector<bool>& visited, int r_i, int c_i, int rSize, int cSize)
-{
+void dfsRecursive(vector<vector<char>>& matrix, vector<bool>& visited, int r_i, int c_i, int rowNum, int columnNum) {
     /* Directions of adjacent elements:
-        [ri][ci - 1] = 1 left from current element
-        [ri][ci + 1] = 1 right from current element
-        [ri - 1][ci] = 1 up from current element
-        [ri + 1][ci] = 1 down from current element
+        [r_i][c_i - 1] = 1 left from current element
+        [r_i][c_i + 1] = 1 right from current element
+        [r_i - 1][c_i] = 1 up from current element
+        [r_i + 1][c_i] = 1 down from current element
     */
 
     // Base case; if either the row or column index is out of range, return.
-    if (r_i < 0 || c_i < 0 || r_i >= rSize || c_i >= cSize)
+    if (r_i < 0 || c_i < 0 || r_i >= rowNum || c_i >= columnNum)
         return;
     
-    int visited_i = r_i * cSize + c_i;          // Index of current matrix element in the visited array.
+    // Index of current matrix element in the visited array.
+    int visited_i = r_i * columnNum + c_i;
 
     // Base case; if the current element has already been visited once, return. This "pops" the element from the recursive call stack.
     if (visited[visited_i] == true)
@@ -57,33 +58,31 @@ void recurDFS(vector<vector<char>>& matrix, vector<bool>& visited, int r_i, int 
     cout << matrix[r_i][c_i] << " ";
     visited[visited_i] = true;
 
-    // Recursively visit the elements adjacent to the current element. Each function call represents a path that can be taken from the
-    // current element. The order in which the functions calls are listed determines how adjacent elements are pushed onto the recursive
-    // stack.
-    recurDFS(matrix, visited, r_i, c_i - 1, rSize, cSize);      // Push element 1 left from current element onto call stack.
-    recurDFS(matrix, visited, r_i, c_i + 1, rSize, cSize);      // Push element 1 right from current element onto call stack.
-    recurDFS(matrix, visited, r_i - 1, c_i, rSize, cSize);      // Push element 1 up from current element onto call stack.
-    recurDFS(matrix, visited, r_i + 1, c_i, rSize, cSize);      // Push element 1 down from current element onto call stack.
+    // Recursively visit the elements adjacent to the current element.
+    dfsRecursive(matrix, visited, r_i, c_i - 1, rowNum, columnNum);      // Push element 1 left from current element onto call stack.
+    dfsRecursive(matrix, visited, r_i, c_i + 1, rowNum, columnNum);      // Push element 1 right from current element onto call stack.
+    dfsRecursive(matrix, visited, r_i - 1, c_i, rowNum, columnNum);      // Push element 1 up from current element onto call stack.
+    dfsRecursive(matrix, visited, r_i + 1, c_i, rowNum, columnNum);      // Push element 1 down from current element onto call stack.
 }
 
-// Wrapper function for recurDFS()
-void dfs(vector<vector<char>>& matrix, int r_i, int c_i, int rSize, int cSize)
-{
+// Helper function for dfsRecursive().
+void dfs(vector<vector<char>>& matrix, int r_i, int c_i, int rowNum, int columnNum) {
     // Stores the status (visited or unvisited) of each element in the matrix. All elements are initialized as unvisited (false).
-    vector<bool> visited(rSize * cSize, false);
-    recurDFS(matrix, visited, r_i, c_i, rSize, cSize);
+    vector<bool> visited(rowNum * columnNum, false);
+    dfsRecursive(matrix, visited, r_i, c_i, rowNum, columnNum);
 }
 
-int main()
-{
+int main() {
+    // Test case 1.
     vector<vector<char>> matrix = {{'0', '1', '2', '3'},       // 4x4 matrix of hex characters.
                                    {'4', '5', '6', '7'},
                                    {'8', '9', 'A', 'B'},
                                    {'C', 'D', 'E', 'F'}};
-    int rowSize = matrix.size();            // Number of rows in matrix.
-    int columnSize = matrix[0].size();      // Number of columns in matrix.
-    int row_i = 0, column_i = 0;            // Indices of the source element.
-    dfs(matrix, row_i, column_i, rowSize, columnSize);
+    int rowNum = matrix.size();             // Number of rows in matrix.
+    int columnNum = matrix[0].size();       // Number of columns in matrix.
+    int r_i = 0;                            // Row index of the source element.
+    int c_i = 0;                            // Column index of the source element.
+    dfs(matrix, r_i, c_i, rowNum, columnNum);
 
     return 0;
 }

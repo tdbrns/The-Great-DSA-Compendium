@@ -87,7 +87,7 @@ if __name__ == "__main__":
     ''' Create Graph 2 (see Algorithms\\Searching\\Depth-First-Search\\Graph2.png)
         Graph 2 Adjacency List:
             vertex_0 -> 1 -> 2
-            vertex_1 -> 0S
+            vertex_1 -> 0
             vertex_2 -> 0
             vertex_3 -> 4 -> 5
             vertex_4 -> 3
