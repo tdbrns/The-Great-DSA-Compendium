@@ -74,7 +74,7 @@ void addEdge(vector<vector<int>>& adjList, int vertex, int connectedVertex) {
 
 int main() {
     // Test case 1.
-    /* Create Graph 1 (see Algorithms\\Searching\\Depth-First-Search\\Graph1.png)
+    /* Create Graph 1 (see Algorithms/Searching/Depth-First-Search/Graph1.png)
         Graph 1 Adjacency List:
             vertex_0 -> 1 -> 2
             vertex_1 -> 0 -> 3 -> 4
@@ -95,7 +95,7 @@ int main() {
 
 
     // Test case 2.
-    /* Create Graph 2 (see Algorithms\\Searching\\Depth-First-Search\\Graph2.png)
+    /* Create Graph 2 (see Algorithms/Searching/Depth-First-Search/Graph2.png)
         Graph 2 Adjacency List:
             vertex_0 -> 1 -> 2
             vertex_1 -> 0

@@ -25,15 +25,12 @@ Resources:
 using std::cout;
 using std::endl;
 
-int validUnorderedPairs(int arr[], int size)
-{
+int validUnorderedPairs(int arr[], int size) {
     int count = 0;      // Track number of pairs that meet the criteria XOR > AND.
 
     // Iteratively check each unordered pair in arr that meets the given constraint 0 <= i < j < n. 
-    for (int i = 0; i < size - 1; i++)
-    {
-        for (int j = i + 1; j < size; j++)
-        {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
             // Perform XOR and AND on the unordered pairs. If the XOR result is greater than the AND result, increment count by 1.
             if ((arr[i] ^ arr[j]) > (arr[i] & arr[j]))
                 count++;
@@ -43,8 +40,8 @@ int validUnorderedPairs(int arr[], int size)
     return count;
 }
 
-int main()
-{
+int main() {
+    // Test case 1.
     int arr[4] = {4, 3, 5, 2};
     int size = sizeof(arr) / sizeof(arr[0]);
     cout << validUnorderedPairs(arr, size);
