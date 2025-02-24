@@ -66,6 +66,7 @@ int main() {
     root->left->left = new TreeNode(3);
     root->left->right = new TreeNode(4);
     root->right->right = new TreeNode(5);
+    cout << "DFS of Binary Tree 1: ";
     dfs(root);
 
     return 0;

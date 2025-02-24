@@ -13,7 +13,7 @@ Solution:             Use a recursive depth-first search (DFS) algorithm to trav
                     the next vertex at the top of the call stack is checked for any unvisited adjacent vertices. This process will 
                     continue until each vertex has been visited exactly once. To prevent a vertex from being visited more than once, 
                     a Boolean array is used to keep track of the visited vertices.
-                      If the graph is disconnected, instead of performing DFS from a single source vertex, Go through each unvisited 
+                      If the graph is disconnected, instead of performing DFS from a single source vertex, go through each unvisited 
                     vertex in the graph and set it as the source vertex regardless of whether or not is is connected to anything.
 
 Time complexity:    O(V + E)
@@ -36,7 +36,7 @@ def dfs_recursive(adj_list, visited, current):
     visited[current] = True
     print(current, end=' ')
 
-    # If an adjacent vertex of the current vertex is unvisited, push it onto the function call stack and check its adjacent vertices.
+    # If an adjacent vertex of the current vertex is unvisited, push it onto the call stack and check its adjacent vertices.
     for vertex in adj_list[current]:
         if visited[vertex] == False:
             dfs_recursive(adj_list, visited, vertex)
@@ -63,15 +63,8 @@ def add_edge(adj_list, vertex, connected_vertex):
 
 if __name__ == "__main__":
     # Test case 1.
-    ''' Create Graph 1 (see Algorithms/Searching/Depth-First-Search/Graph1.png)
-        Graph 1 Adjacency List:
-            vertex_0 -> 1 -> 2
-            vertex_1 -> 0 -> 3 -> 4
-            vertex_2 -> 0 -> 4
-            vertex_3 -> 1
-            vertex_4 -> 1 -> 2
-    '''
-    vertex_num = 5                                  # Number of vertices in the graph.
+    # Create Graph 1 (see Algorithms/Searching/Depth-First-Search/Graph1.png)
+    vertex_num = 5                                  # Number of vertices in Graph 1.
     source_vertex = 0                               # First vertex to be visited in the search.
     adj_list = [[] for i in range(vertex_num)]      # Stores each vertex in a row and each of their edge-connected vertices in a column.
     add_edge(adj_list, 0, 1)
@@ -84,17 +77,9 @@ if __name__ == "__main__":
 
 
     # Test case 2.
-    ''' Create Graph 2 (see Algorithms/Searching/Depth-First-Search/Graph2.png)
-        Graph 2 Adjacency List:
-            vertex_0 -> 1 -> 2
-            vertex_1 -> 0
-            vertex_2 -> 0
-            vertex_3 -> 4 -> 5
-            vertex_4 -> 3
-            vertex_5 -> 3
-    '''
-    vertex_num = 6
-    adj_list = adj_list = [[] for i in range(vertex_num)]
+    # Create Graph 2 (see Algorithms/Searching/Depth-First-Search/Graph2.png)
+    vertex_num = 6                                  # Number of vertices in Graph 2.
+    adj_list = [[] for i in range(vertex_num)]
     add_edge(adj_list, 0, 1)
     add_edge(adj_list, 0, 2)
     add_edge(adj_list, 3, 4)

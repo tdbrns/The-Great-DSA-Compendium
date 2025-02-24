@@ -3,13 +3,13 @@ Algorithm:          Iterative Breadth-First Search (BFS) for a Matrix
 
 Task:               Print out the value of each element in a matrix of size m * n.
 
-Solution:           Use an iterative breadth-first search (BFS) algorithm to traverse the matrix and print each element value. BFS 
+Solution:             Use an iterative breadth-first search (BFS) algorithm to traverse the matrix and print each element value. BFS 
                     traverses the matrix by visiting a source element, pushing its adjacent unvisited elements into a queue, and 
                     visiting the adjacent elements of the elements that are popped from the queue; this process is repeated until all 
                     the elements in the matrix have been visited exactly once.
-                    BFS uses a queue to keep track of adjacent unvisited elements. When an element is visited, it is flagged as "visited"
-                    and popped from the front of the queue before its adjacent unvisited elements are pushed into the queue. If the
-                    element has no adjacent unvisited elements, the next element at the front of the queue is checked for adjacent
+                      BFS uses a queue to keep track of adjacent unvisited elements. When an element is visited, it is flagged as 
+                    "visited" and popped from the front of the queue before its adjacent unvisited elements are pushed into the queue. 
+                    If the element has no adjacent unvisited elements, the next element at the front of the queue is checked for adjacent
                     unvisited elements. This process will continue until there are no more unvisited elements in the matrix. To prevent 
                     an element from being visited more than once, a 2-D Boolean array of size m * n is used to keep track of the visited 
                     elements.
@@ -24,7 +24,7 @@ Space complexity:   O(E)
 Auxiliary space:    O(E)
                         E = number of elements in the queue / size of the visited array
 
-Resources:          https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+Resources:          https://www.geeksforgeeks.org/breadth-first-traversal-bfs-on-a-2d-array/
                     https://www.youtube.com/watch?v=pcKY4hjDrxk
 */
 
@@ -39,8 +39,7 @@ using std::pair;
 
 const int NUM_DIRECTIONS = 4;   // There are 4 possible adjacent elements that can be visited from the current element.
 
-void bfs(vector<vector<char>>& matrix, int ri, int ci, int rSize, int cSize)
-{
+void bfs(vector<vector<char>>& matrix, int ri, int ci, int rowNum, int columnNum) {
     /* Directions of adjacent elements:
         [ri][ci - 1] = 1 left from current element
         [ri][ci + 1] = 1 right from current element
@@ -55,14 +54,13 @@ void bfs(vector<vector<char>>& matrix, int ri, int ci, int rSize, int cSize)
 
     // 2-D vector that stores the status (visited or unvisited) of each element in the matrix. All elements are initialized to false 
     // (unvisited).
-    vector<vector<bool>> visited(rSize, vector<bool>(cSize, false));    // 2-D vector 
+    vector<vector<bool>> visited(rowNum, vector<bool>(columnNum, false));    // 2-D vector 
 
     // Push indices of current element into q; flag current element as visited.
     q.push({ri, ci});
     visited[ri][ci] = true;
 
-    while (!q.empty())
-    {
+    while (!q.empty()) {
         // Print the element at the front of the queue, then pop it from the queue.
         pair<int, int> current = q.front();
         ri = current.first;
@@ -71,13 +69,12 @@ void bfs(vector<vector<char>>& matrix, int ri, int ci, int rSize, int cSize)
         q.pop();
 
         // Iteratively visit the adjacent elements of the current element.
-        for (int i = 0; i < NUM_DIRECTIONS; i++)
-        {
+        for (int i = 0; i < NUM_DIRECTIONS; i++) {
             int adj_ri = ri + rDirection[i];        // Row index of adjacent element.
             int adj_ci = ci + cDirection[i];        // Column index of adjacent element.
 
             // If either the row or column index of the adjacent element is out of range, continue.
-            if (adj_ri < 0 || adj_ci < 0 || adj_ri >= rSize || adj_ci >= cSize)
+            if (adj_ri < 0 || adj_ci < 0 || adj_ri >= rowNum || adj_ci >= columnNum)
                 continue;
 
             // If the current adjacent element has already been visited, continue.
@@ -91,8 +88,8 @@ void bfs(vector<vector<char>>& matrix, int ri, int ci, int rSize, int cSize)
     }
 }
 
-int main()
-{
+int main() {
+    // Test case 1.
     vector<vector<char>> matrix = {{'0', '1', '2', '3'},       // 4x4 matrix of characters.
                                    {'4', '5', '6', '7'},
                                    {'8', '9', 'A', 'B'},

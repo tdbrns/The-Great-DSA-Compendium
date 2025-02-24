@@ -82,6 +82,7 @@ int main() {
     int columnNum = matrix[0].size();       // Number of columns in matrix.
     int r_i = 0;                            // Row index of the source element.
     int c_i = 0;                            // Column index of the source element.
+    cout << "DFS of Hexadecimal Matrix: ";
     dfs(matrix, r_i, c_i, rowNum, columnNum);
 
     return 0;

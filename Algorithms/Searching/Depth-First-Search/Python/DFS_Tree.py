@@ -56,4 +56,5 @@ if __name__ == "__main__":
     root.left.left = TreeNode(3)
     root.left.right = TreeNode(4)
     root.right.right = TreeNode(5)
+    print("DFS of Binary Tree 1:", end=' ')
     dfs(root)

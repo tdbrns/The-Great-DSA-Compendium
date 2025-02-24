@@ -74,4 +74,5 @@ if __name__ == "__main__":
     column_num = len(matrix[0])                 # Number of columns in matrix.
     r_i = 0                                     # Row index of the source element.
     c_i = 0                                     # Column index of the source element.
+    print("DFS of Hexadecimal Matrix:", end=' ')
     dfs(matrix, r_i, c_i, row_num, column_num)
